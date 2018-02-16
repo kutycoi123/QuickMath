@@ -1,7 +1,12 @@
 class SessionsController < ApplicationController
 	def new
+<<<<<<< HEAD
 		
 	end
+=======
+	end
+
+>>>>>>> 721266809624b699f5477df52229865e1f0e8966
 	def create
 		@user = User.find_by(email: params[:session][:email])
 		if @user && @user.my_authenticate(params[:session][:password])
@@ -17,6 +22,10 @@ class SessionsController < ApplicationController
 		if logged_in?
 			log_out
 		end
+<<<<<<< HEAD
 		redirect_to home_path
+=======
+		redirect_to welcome_path
+>>>>>>> 721266809624b699f5477df52229865e1f0e8966
 	end
 end

@@ -26,4 +26,8 @@ class UsersLoginTest < ActionDispatch::IntegrationTest
   	get root_path
   	assert flash.empty?
   end
+<<<<<<< HEAD
 end
+=======
+end
+>>>>>>> 721266809624b699f5477df52229865e1f0e8966

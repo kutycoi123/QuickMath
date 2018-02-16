@@ -1,0 +1,20 @@
+<% provide(:title, "Log in") %>
+<h1>Log in</h1>
+<div>
+	<div class="login">
+		<%= form_for(:session, url: login_path) do |f|%>
+		<%= f.label :email, class: "lb"%>
+		<%= f.email_field :email, class: "custom-login-input"%>
+		<%= f.label :password, class: "lb"%>
+		<%= f.password_field :password, class: "custom-login-input"%>
+
+		<%= f.label :remember_me, class: "lb" do%>
+			<%= f.check_box :remember_me%>
+			<span>Remember me on this computer</span>
+		<% end %>
+
+		<%= f.submit "Log in", class: "custom-login-input"%>
+
+	<% end %>
+	</div>
+</div>

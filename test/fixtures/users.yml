@@ -9,3 +9,8 @@ two:
   name: MyString
   email: MyString
   password_digest: MyString
+
+testUser:
+  name: testUser
+  email: testuser123@gmail.com
+  password_digest: <%= Digest::SHA1.hexdigest("123456") %>

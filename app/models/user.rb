@@ -1,4 +1,5 @@
 class User < ApplicationRecord
+	has_secure_password
 	has_many :notes
 	has_and_belongs_to_many :courses
 	def my_authenticate(password)

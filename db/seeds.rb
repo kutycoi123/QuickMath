@@ -7,4 +7,4 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 user = User.create!(name: "testuser",
 				email: "testuser123@gmail.com",
-				password_digest: Digest::SHA1.hexdigest("123456"))
+				password: "123456", password_confirmation: "123456")

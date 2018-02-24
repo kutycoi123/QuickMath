@@ -3,13 +3,15 @@ Rails.application.routes.draw do
   root 'pages#welcome'
     
   resources :users
+  resources :courses
 
-  get 'sessions/new'
+  get   'sessions/new'
     
-  get 'pages/welcome'
+  get   'pages/welcome'
   
-  get 'pages/about'
+  get   'about',    to: 'pages#about' 
   
+
   get   '/welcome', to: 'pages#welcome'
 
   get 	'/login', 	to: 'sessions#new'

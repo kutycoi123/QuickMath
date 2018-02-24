@@ -9,3 +9,10 @@ To run the app locally, please follow these commands:
 + rails db:seed
 + rails s
 + and then open the browser with url: localhost:3000
+
+Repository User Mapping:
+asa217 --> Angad
+mimeri --> Mario
+rpranta --> Rafid
+sgrose --> Shayna Grose
+tln3 or lam26106 --> Lam 

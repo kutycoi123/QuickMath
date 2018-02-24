@@ -11,8 +11,8 @@ To run the app locally, please follow these commands:
 + and then open the browser with url: localhost:3000
 
 Repository User Mapping:
-+asa217 --> Angad
-+mimeri --> Mario
-+rpranta --> Rafid
-+sgrose --> Shayna Grose
-+tln3 or lam26106 --> Lam 
++ asa217 --> Angad
++ mimeri --> Mario
++ rpranta --> Rafid
++ sgrose --> Shayna Grose
++ tln3 or lam26106 --> Lam 

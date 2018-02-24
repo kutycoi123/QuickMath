@@ -1,0 +1,60 @@
+<div class="row">
+  <div class="course_header">
+    <h1><%= @course.name %>: <%= @course.title %></h1>
+    <h4><%= @course.description%></h4>
+    <%= link_to "Add notes",  "#", class: "add_note"%>
+    <hr>
+  </div>
+  <div class="list_of_note">
+    <% @user_notes.each do |x| %>
+      <div class="note">
+        <aside class="col-md-4">
+          <section class="note_info">
+          
+          <p></p>
+          <h1>
+            Title: <%= x.title%>
+          </h1>
+          <p></p>
+          <h1>
+            Author: <%= @user.name %>
+          </h1>
+          <p></p>
+          <h1>
+            Term: Spring, 2018
+          </h1>
+          <p></p>
+          <p>
+            <%= link_to "Show", '#'%>/
+            <%= link_to "Edit", '#'%>/
+            <%= link_to "Delete", '#'%>
+          </p>
+          </section>
+        </aside>
+      </div>
+    <% end %>
+    <% @non_user_notes.each do |x| %>
+      <div class="note">
+        <aside class="col-md-4">
+          <section class="note_info">
+          
+          <p></p>
+          <h1>
+            Title: <%= x.title%>
+          </h1>
+          <p></p>
+          <h1>
+            Author: <%= @user.name %>
+          </h1>
+          <p></p>
+          <h1>
+            Term: Spring, 2018
+          </h1>
+          <p></p>
+          </section>
+        </aside>
+      </div>
+    <% end %>
+  </div>
+
+</div>

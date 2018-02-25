@@ -13,7 +13,7 @@ class UserTest < ActiveSupport::TestCase
   end
   test "name should be presence" do
   	@user.name = "   "
-  	assert_not @user.valid
+  	assert_not @user.valid?
   end
   test "email should be presence" do
   	@user.email = "     "
@@ -24,11 +24,11 @@ class UserTest < ActiveSupport::TestCase
   	assert_not @user.valid?
   end
   test "email should not be too long" do
-  	@user.email = "a" * 60 + "@gmail.com"
+  	@user.email = "a" * 255 + "@gmail.com"
   	assert_not @user.valid?
   end
   test "email validation should accept valid addresses" do
-  	valid_addresses = %w[testuser123@gmail.com USER123@gmail.COM A_USER-test@yahoo.com 
+  	valid_addresses = %w[test1234@gmail.com USER123@gmail.COM A_USER-test@yahoo.com 
   							first.last@foo.jp alice+bob@baz.cn]
   	valid_addresses.each do |valid_addr|
   		@user.email = valid_addr
@@ -36,9 +36,9 @@ class UserTest < ActiveSupport::TestCase
   	end
   end
   test "email validation should reject invalid addresses" do
-  	valid_addresses = %w[testuser123@gmail,com USER123_gmail.COM user.name@example.
+  	invalid_addresses = %w[testuser123@gmail,com USER123_gmail.COM user.name@example.
                            test@cat_cat.com test@gmail+yahoo.com test@cat..com]
-  	valid_addresses.each do |invalid_addr|
+  	invalid_addresses.each do |invalid_addr|
   		@user.email = invalid_addr
   		assert_not @user.valid?
   	end

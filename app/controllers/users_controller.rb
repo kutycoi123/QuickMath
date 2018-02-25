@@ -18,7 +18,7 @@ class UsersController < ApplicationController
 		@user = current_user
 		if @user && @user.update_attributes(user_params)
 			flash.now[:success] = "Update successfully"
-			redirect_to root_path
+			redirect_to @user
 		else
 			render 'edit'
 		end

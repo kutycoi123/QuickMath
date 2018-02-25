@@ -8,8 +8,5 @@ class SessionsControllerTest < ActionDispatch::IntegrationTest
   		get login_path
   		assert_response :success
 	end
-<<<<<<< HEAD
 end
-=======
-end
->>>>>>> 721266809624b699f5477df52229865e1f0e8966
+

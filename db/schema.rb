@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180225224704) do
+ActiveRecord::Schema.define(version: 20180227062448) do
 
   create_table "courses", force: :cascade do |t|
     t.string "name"
@@ -23,6 +23,28 @@ ActiveRecord::Schema.define(version: 20180225224704) do
   create_table "courses_users", id: false, force: :cascade do |t|
     t.integer "course_id", null: false
     t.integer "user_id", null: false
+  end
+
+  create_table "file_items", force: :cascade do |t|
+    t.integer "file_list_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "item_file_name"
+    t.string "item_content_type"
+    t.integer "item_file_size"
+    t.datetime "item_updated_at"
+    t.string "thumbnail_file_name"
+    t.string "thumbnail_content_type"
+    t.integer "thumbnail_file_size"
+    t.datetime "thumbnail_updated_at"
+    t.index ["file_list_id"], name: "index_file_items_on_file_list_id"
+  end
+
+  create_table "file_lists", force: :cascade do |t|
+    t.integer "note_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["note_id"], name: "index_file_lists_on_note_id"
   end
 
   create_table "notes", force: :cascade do |t|

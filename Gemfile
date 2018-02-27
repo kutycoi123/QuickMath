@@ -7,6 +7,8 @@ end
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
+gem 'paperclip'
+gem 'rmagick'
 gem 'rails', '~> 5.1.4'
 gem 'jquery-rails',   '4.3.1'
 gem 'bootstrap-sass', '3.3.7'

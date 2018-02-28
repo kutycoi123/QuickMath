@@ -1,11 +1,5 @@
-<DIV style="position: relative; top:50px; left:30px;"><font face = "arial black" size = "32">About QuickSFU</font></DIV>
-
-
-<!-- linkts back to the log in page-->
-<DIV style = "position: fixed; top:10px; left: 10px;"><font face = "verdana"><A HREF="../pages/welcome.html" style="font-size: 20px; color:gray";>Home</A></font></DIV>
-
-
 <!--sets background image-->
+<!--
 <style type="text/css">
 html, 
 body {
@@ -18,10 +12,95 @@ background-repeat: no-repeat;
 background-size: 100% 100%;
 }
 </style>
+-->
 
 
-<DIV style = "position: relative; top: 250px; left: 10px; width: 380px;"><font style="font-size: 18px; color: darkslategrey";> QuickSFU is a web application created by students, for students. Our goal is to provide students with easy and full access to class notes provided by previous students. We hope you find it useful! </font></DIV>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>About</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <style>
+    /* Remove the navbar's default margin-bottom and rounded borders */ 
+    .navbar {
+      margin-bottom: 0;
+      border-radius: 0;
+    }
+    
+    /* Set height of the grid so .sidenav can be 100% (adjust as needed) */
+    .row.content {height: 605px}
+    
+    
+    /* Set black background color, white text and some padding */
+    footer {
+      background-color: #555;
+      color: white;
+      padding: 15px;
+    }
+    
+    body {
+		background-image: url(http://itsalwaysrainyinvancouver.com/assets/images/AQ.jpg);
+		background-repeat: no-repeat;
+		background-size: 100% 100%;
+		background-origin: content-box;
+    }
+    
+    
+    
+  </style>
+</head>
+<body>
+
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>                        
+      </button>
+      <a class="navbar-brand">QSFU</a>
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav">
+        <li><a href="../welcome">Home</a></li>
+        <li class="active"><a href="#">About</a></li>
+        
+<!--         not sure if we want a contact page -->
+        <li><a href="#">Contact</a></li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="../login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+  
+<div class="container-fluid text-center">    
+  <div class="row content">
+    <div> 
+      <h1>About QuickSFU</h1>
+            <hr>
+            <p>QuickSFU is a web application created by students, for students. Our goal is to provide students with easy and full access to class notes provided by previous students. We hope you find it useful!</p>
+    </div>
+    
+  </div>
+</div>
+
+<footer class="container-fluid text-center">
+  <p>Created by Rafid Ashab Pranto, Angad Aujla, Shayna Grose, Mario Imeri and Lam Nguyen. Spring 2018.</p>
+</footer>
+
+</body>
+</html>
 
 
 
-<DIV style = "position: fixed; top: 680px; left: 10px; width: 320px;"><font style="font-size: 12px; color: grey";> Created by Rafid Ashab Pranto, Angad Aujla, Shayna Grose, Mario Imeri and Lam Nguyen. Spring 2018. </font></DIV>
+
+
+
+

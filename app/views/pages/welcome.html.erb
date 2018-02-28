@@ -1,25 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Welcome</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <style>
 
-<style type="text/css">
-html, 
-body {
-height: 100%;
-}
+    /* Remove the navbar's default margin-bottom and rounded borders */ 
 
-body {
-background-image: url(https://www.straight.com/files/v3/styles/gs_large/public/images/15/09/shutterstock_236496097.jpg?itok=WRtWIoGM);
-background-repeat: no-repeat;
-background-size: 100% 100%;
-}
+    .navbar {
+      margin-bottom: 0;
+      border-radius: 0;
+    }
 
-</style>
+    
+    /* Set height of the grid so .sidenav can be 100% (adjust as needed) */
+   .row.content {height: 605px} 
+    
+    /* Set black background color, white text and some padding */
+     footer { 
 
+      background-color: #555;
+      color: white;
+      padding: 15px;
+    }
+    
+	body {
+		background-image: url(https://d2ciprw05cjhos.cloudfront.net/files/v3/styles/gs_large/public/images/15/09/shutterstock_236496097.jpg?itok=WRtWIoGM);
+		background-repeat: no-repeat;
+		background-size: 100% 100%;
+    }
+   
 
-<DIV style="position: relative; top:50px; left:350px;"><font face = "arial black" size = "32">Welcome to QuickSFU</font></DIV>
+	</style>
+	</head>
+<body>
 
-<!-- this links to the about page-->
-<DIV style = "position: fixed; top: 0px; left: 1000px;"><font face = "verdana" size = "12"><A HREF="../about" style="font-size: 20px; color:black";>ABOUT</A></DIV>
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>                        
+      </button>
+      <a class="navbar-brand">QSFU</a>
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="#">Home</a></li>
+        <li><a href="../about">About</a></li>
+        
+<!--         not sure if we want a contact page -->
+        <li><a href="#">Contact</a></li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="../login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+  
+<div class="container-fluid text-center">    
+  <div class="row content">
+      <h1>Welcome to QuickSFU</h1>
+            <hr>
+    </div>
+    
+  </div>
+</div>
 
-<!--this links back to the log in page-->
-<DIV style = "position: fixed; top: 0px; left: 1100px;"><font face = "verdana" size = "12"><A HREF="../login" style="font-size: 20px; color:black";>LOG IN</A></DIV>
+<footer class="container-fluid text-center">
+  <p>Created by Rafid Ashab Pranto, Angad Aujla, Shayna Grose, Mario Imeri and Lam Nguyen. Spring 2018.</p>
+</footer>
 
-
+</body>
+</html>

@@ -1,4 +1,4 @@
-source 'https://rubygems.org'
+source 'http://rubygems.org'
 
 git_source(:github) do |repo_name|
   repo_name = "#{repo_name}/#{repo_name}" unless repo_name.include?("/")
@@ -12,6 +12,8 @@ gem 'rmagick'
 gem 'rails', '~> 5.1.4'
 gem 'jquery-rails',   '4.3.1'
 gem 'bootstrap-sass', '3.3.7'
+gem 'bootstrap', '~> 4.0.0'
+gem 'autoprefixer-rails'
 # Use Puma as the app server
 gem 'puma', '~> 3.7'
 # Use SCSS for stylesheets

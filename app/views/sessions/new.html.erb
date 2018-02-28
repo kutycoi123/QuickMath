@@ -11,7 +11,6 @@
   <style>
 
     /* Remove the navbar's default margin-bottom and rounded borders */ 
-
     .navbar {
       margin-bottom: 0;
       border-radius: 0;
@@ -23,11 +22,48 @@
     
     /* Set black background color, white text and some padding */
      footer { 
-
       background-color: #555;
       color: white;
       padding: 15px;
     }
+    
+
+    .lb{
+/* 	margin-left: 0%; */
+  
+}
+
+.login input[type=text]{
+  width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    width: 40%;
+    margin-right: 30%;
+    margin-left: 30%;
+}
+.custom-login-input{
+    padding: 3px;
+    border-radius: 6px;
+    width: 50%;
+    margin-left: 25%;
+    margin-right: 25%; 
+}
+
+.custom-login-input div{
+  border: 0px solid white;
+}
+
+/*
+.login{
+	text-align: left;
+	
+	
+}
+*/
     
     </style>
 	</head>
@@ -47,11 +83,12 @@
       <ul class="nav navbar-nav">
         <li><a href="../welcome">Home</a></li>
         <li><a href="../about">About</a></li>
-        
-<!--         not sure if we want a contact page -->
-        <li><a href="#">Contact</a></li>
+       
       </ul>
       <ul class="nav navbar-nav navbar-right">
+	      
+	      <!-- 	      add in href link to sign up page once it is built -->
+	      <li><a href="#">Sign Up</a></li>
         <li class ="active"><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
       </ul>
     </div>
@@ -62,13 +99,8 @@
   <div class="row content">
       <h1>Log In</h1>
             <hr>
-    </div>
-    
-  </div>
-</div>
-
-
-<% provide(:title, "Log in") %>
+            
+        <% provide(:title, "Log in") %>
 <div>
 	<div class="login">
 		<%= form_for(:session, url: login_path) do |f|%>
@@ -86,6 +118,11 @@
 
 	<% end %>
 	</div>
+	</div>       
+            
+    </div>
+    
+  </div>
 </div>
 
 <footer class="container-fluid text-center">

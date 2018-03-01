@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Log In</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <style>
+
+       /*User show page*/
+    
+    body {
+      padding-top: 60px;
+      background-color: #f6f6f6;
+     }
+
+     
+    
+    </style>
+  </head>
+<body>
+
+<div class="container">
+<div class="user_show_wrapper">
+  <div class="user_header col-md-10">
+      <div class="row">
+          <div class="user_avatar col-md-1">
+            <%= gravatar_for @user%>
+          </div>
+          <div class="user_name col-md-2" >
+            <h3><%= @user.name%></h3>
+          </div>
+      </div>
+  </div>
+  <div class="user_add_course col-md-10">
+    <div class="page_banner col-md-6">
+      Share and ger free notes of a specific course
+    </div>
+    <%= link_to '#' do %>
+      <div class="add_course_button btn btn-success ">
+         Add Courses
+      </div>
+    <% end %>
+  </div>
+  <div class="user_courses_wrapper">
+        <% @user.courses.each do |x|%>
+          <%= link_to course_path(x) do %>
+              <div class="user_course col-md-3">
+                <div class="course_name"><%=x.name%></div>
+              </div>
+          <% end %>
+        <% end %>
+  </div>
+</div>
+</div>
+
+</body>
+</html>

@@ -1,7 +1,10 @@
+<div class="container" >
 <div class="row">
   <div class="course_header">
     <h1><%= @course.name %>: <%= @course.title %></h1>
-    <h4><%= @course.description%></h4>
+    <div class="course_description" >
+      <h4><%= @course.description%></h4>
+    </div>
     <%= link_to "Add notes",  "#", class: "add_note"%>
     <hr>
   </div>
@@ -57,4 +60,5 @@
     <% end %>
   </div>
 
+</div>
 </div>

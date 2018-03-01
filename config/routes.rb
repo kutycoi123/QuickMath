@@ -2,9 +2,10 @@ Rails.application.routes.draw do
     
   root 'pages#welcome'
     
-  resources :users
-  resources :courses
-
+  resources :users do
+    resources :courses
+  end
+resources :courses
   get   'sessions/new'
     
   get   'pages/welcome'

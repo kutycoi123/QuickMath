@@ -68,8 +68,12 @@
       <ul class="nav navbar-nav navbar-right">
 	      
 	      <!-- 	      add in href link to sign up page once it is built -->
-	      <li><a href="#">Sign Up</a></li>
-        <li><a href="../login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+        <% if !logged_in?%>
+  	      <li><a href="#">Sign Up</a></li>
+          <li><a href="../login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+        <% else %>
+          <li><%= link_to "Log out", logout_path, method: :delete %></li>
+        <% end %>
          
       </ul>
     </div>

@@ -67,7 +67,13 @@
       <ul class="nav navbar-nav navbar-right">
 	      
 <!-- 	      this doesn't actually log the user out, just re routes to log in -->
-        <li><a href="../login"><span class="glyphicon glyphicon-log-in"></span> Log Out</a></li>
+        <!-- <li><a href="../login"><span class="glyphicon glyphicon-log-in"></span> Log Out</a></li> -->
+        <% if !logged_in?%>
+          <li><a href="#">Sign Up</a></li>
+          <li><a href="../login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+        <% else %>
+          <li><%= link_to 'Logout', logout_path, method: :delete%></li>
+        <% end %>
          
       </ul>
     </div>

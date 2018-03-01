@@ -10,7 +10,8 @@ Rails.application.routes.draw do
   get   'pages/welcome'
   
   get   'about',    to: 'pages#about' 
-  
+
+  get    '/show',    to: 'users#show'
 
   get   '/welcome', to: 'pages#welcome'
 

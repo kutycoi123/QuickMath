@@ -12,8 +12,12 @@
 
     /* Remove the navbar's default margin-bottom and rounded borders */ 
     .navbar {
-      margin-bottom: 0;
-      border-radius: 0;
+        margin-bottom: 0;
+        border-radius: 0;
+        position:fixed;
+        top: 0px;
+        right: 0px;
+        left: 0px;
     }
 
     
@@ -21,10 +25,13 @@
    .row.content {height: 605px} 
     
     /* Set black background color, white text and some padding */
-     footer { 
-      background-color: #555;
-      color: white;
-      padding: 15px;
+      footer { 
+        position: absolute;
+        bottom: 0;
+        background-color: #555;
+        color: white;
+        padding: 15px;
+        width: 100%;
     }
     
 
@@ -56,14 +63,6 @@
 .custom-login-input div{
   border: 0px solid white;
 }
-
-/*
-.login{
-	text-align: left;
-	
-	
-}
-*/
     
     </style>
 	</head>

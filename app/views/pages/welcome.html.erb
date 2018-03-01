@@ -59,7 +59,10 @@
       <ul class="nav navbar-nav">
         <li class="active"><a href="#">Home</a></li>
         <li><a href="../about">About</a></li>
-        <li><a href="../show">Account</a></li>
+        <!-- <li><a href="../show">Account</a></li> -->
+        <% if logged_in? %>
+          <li> <%= link_to "Account", user_path(current_user) %> </li>
+        <% end %>
       </ul>
       
       <ul class="nav navbar-nav navbar-right">

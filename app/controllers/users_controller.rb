@@ -1,30 +1,22 @@
 class UsersController < ApplicationController
 	before_action :correct_user, only: [:edit, :show, :update]
 	def new
-<<<<<<< HEAD
-		#render 'signup'
-		@user=User.new
-	end
-	def create
-
-=======
 		@user=User.new
 	end
 	def create
 		@user = User.new(user_params)
 		if @user.save
-			flash[:success] = "Sign up successful"
+			flash[:success] = "Sign up successful. Try logging in the system"
 			redirect_to login_path
 		else
 			render 'new'
 		end
->>>>>>> d5908abbf46b4978d043da86d02f02dc454df41b
 	end
 	def show
 		 @user = User.find(params[:id])
 	end
 	def edit
-		
+
 		correct_user
 	end
 	def update
@@ -48,9 +40,4 @@ class UsersController < ApplicationController
 		        redirect_to root_path
 	      	end
     	end
-<<<<<<< HEAD
-
-
-=======
->>>>>>> d5908abbf46b4978d043da86d02f02dc454df41b
 end

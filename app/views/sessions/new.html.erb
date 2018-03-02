@@ -10,7 +10,7 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   <style>
 
-    /* Remove the navbar's default margin-bottom and rounded borders */ 
+    /* Remove the navbar's default margin-bottom and rounded borders */
     .navbar {
         margin-bottom: 0;
         border-radius: 0;
@@ -20,12 +20,12 @@
         left: 0px;
     }
 
-    
+
     /* Set height of the grid so .sidenav can be 100% (adjust as needed) */
-   .row.content {height: 605px} 
-    
+   .row.content {height: 605px}
+
     /* Set black background color, white text and some padding */
-      footer { 
+      footer {
         position: absolute;
         bottom: 0;
         background-color: #555;
@@ -33,11 +33,11 @@
         padding: 15px;
         width: 100%;
     }
-    
+
 
     .lb{
 /* 	margin-left: 0%; */
-  
+
 }
 
 .login input[type=text]{
@@ -57,13 +57,13 @@
     border-radius: 6px;
     width: 50%;
     margin-left: 25%;
-    margin-right: 25%; 
+    margin-right: 25%;
 }
 
 .custom-login-input div{
   border: 0px solid white;
 }
-    
+
     </style>
 	</head>
 <body>
@@ -74,7 +74,7 @@
       <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
-        <span class="icon-bar"></span>                        
+        <span class="icon-bar"></span>
       </button>
       <a class="navbar-brand">QSFU</a>
     </div>
@@ -82,10 +82,10 @@
       <ul class="nav navbar-nav">
         <li><a href="../welcome">Home</a></li>
         <li><a href="../about">About</a></li>
-       
+
       </ul>
       <ul class="nav navbar-nav navbar-right">
-	      
+
 	      <!-- 	      add in href link to sign up page once it is built -->
 	      <% if !logged_in?%>
           <li><a href="#">Sign Up</a></li>
@@ -97,12 +97,12 @@
     </div>
   </div>
 </nav>
-  
-<div class="container-fluid text-center">    
+
+<div class="container-fluid text-center">
   <div class="row content">
       <h1>Log In</h1>
             <hr>
-            
+
         <% provide(:title, "Log in") %>
 <div>
 	<div class="login">
@@ -121,10 +121,10 @@
 
 	<% end %>
 	</div>
-	</div>       
-            
+	</div>
+
     </div>
-    
+
   </div>
 </div>
 

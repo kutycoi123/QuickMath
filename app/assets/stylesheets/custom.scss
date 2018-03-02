@@ -46,7 +46,7 @@ h2 {
 p {
   font-size: 1.1em;
   line-height: 1.7em;
-} 
+}
 /* sidebar */
 
 aside {
@@ -85,6 +85,7 @@ aside {
 }
 
 
+
 /* forms */
 
 @mixin box_sizing {
@@ -114,7 +115,7 @@ input {
   @extend .has-error;
   .form-control {
     color: $state-danger-text;
-    
+
   }
 }
 

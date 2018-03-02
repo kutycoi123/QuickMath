@@ -1,16 +1,16 @@
 Rails.application.routes.draw do
-    
+
   root 'pages#welcome'
-    
+
   resources :users
   resources :courses
 
   get   'sessions/new'
-    
+
   get   'pages/welcome'
-  
-  get   'about',    to: 'pages#about' 
-  
+
+  get   'about',    to: 'pages#about'
+
 
   get   '/welcome', to: 'pages#welcome'
 
@@ -18,7 +18,11 @@ Rails.application.routes.draw do
 
   post 	'/login', 	to: 'sessions#create'
 
+  get   '/signup',   to: 'users#new'
+
+  post   '/signup',   to: 'users#create'
+
   delete '/logout',	to: 'sessions#destroy'
-   
+
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

@@ -34,3 +34,44 @@
     padding-top: 2%;
     margin-bottom: 5%;
 }
+
+/*User show page */
+.user_show_wrapper{
+      margin-top: 5%;
+      overflow: hidden;
+}
+.user_header{
+     overflow: hidden;
+}
+.user_avatar{
+      padding: 0 0 0 0;
+}	
+.user_name{
+      margin-left: 20px;
+      padding: 0 0 0 0;
+}
+.user_add_course{
+      background-color: white;
+      margin: 5% 0 10px 0;
+      border: 1px solid #ddd;
+      border-radius: 6px;
+      font-size: 16px;
+      padding: 16px 24px;
+}
+.page_banner{
+      margin-left: 10%;
+      font-size: 20px;
+    }
+    .add_course_button{
+
+}
+.user_course{
+      height: 100px;
+      background-color: white;
+      margin-right: 20px;
+      margin-top: 5%;
+      border-bottom: 2px solid #AABEDE;
+    }
+.course_name{
+     margin: 15% 0 20% 0;
+}

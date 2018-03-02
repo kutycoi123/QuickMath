@@ -11,9 +11,13 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   <style>
     /* Remove the navbar's default margin-bottom and rounded borders */ 
-    .navbar {
-      margin-bottom: 0;
-      border-radius: 0;
+     .navbar {
+        margin-bottom: 0;
+        border-radius: 0;
+        position:fixed;
+        top: 0px;
+        right: 0px;
+        left: 0px;
     }
     
     /* Set height of the grid so .sidenav can be 100% (adjust as needed) */
@@ -21,13 +25,17 @@
     
     
     /* Set black background color, white text and some padding */
-    footer {
-      background-color: #555;
-      color: white;
-      padding: 15px;
+     footer { 
+        position: absolute;
+        bottom: 0;
+        background-color: #555;
+        color: white;
+        padding: 15px;
+        width: 100%;
     }
     
     body {
+        padding-top: 60px;
 		background-image: url(http://itsalwaysrainyinvancouver.com/assets/images/AQ.jpg);
 		background-repeat: no-repeat;
 		background-size: 100% 100%;
@@ -68,13 +76,21 @@
       <ul class="nav navbar-nav">
         <li><a href="../welcome">Home</a></li>
         <li class="active"><a href="#">About</a></li>
+        <!-- <li><a href="../show">Account</a></li> -->
+        <% if logged_in? %>
+          <li> <%= link_to "Account", user_path(current_user) %> </li>
+        <% end %>
       </ul>
       <ul class="nav navbar-nav navbar-right">
 	      
 	      
 <!-- 	      add in href link to sign up page once it is built -->
-	      <li><a href="#">Sign Up</a></li>
-        <li><a href="../login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+	      <% if !logged_in?%>
+          <li><a href="#">Sign Up</a></li>
+          <li><a href="../login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+        <% else %>
+          <li><%= link_to 'Logout', logout_path, method: :delete%></li>
+        <% end %>
       </ul>
     </div>
   </div>

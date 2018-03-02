@@ -11,24 +11,30 @@
 
     /* Remove the navbar's default margin-bottom and rounded borders */
 
-    .navbar {
-      margin-bottom: 0;
-      border-radius: 0;
+     .navbar {
+        margin-bottom: 0;
+        border-radius: 0;
+        position:fixed;
+        top: 0px;
+        right: 0px;
+        left: 0px;
     }
-
 
     /* Set height of the grid so .sidenav can be 100% (adjust as needed) */
    .row.content {height: 605px}
 
     /* Set black background color, white text and some padding */
      footer {
-
-      background-color: #555;
-      color: white;
-      padding: 15px;
+        position: absolute;
+        bottom: 0;
+        background-color: #555;
+        color: white;
+        padding: 15px;
+        width: 100%;
     }
 
 	body {
+	    padding-top: 60px;
 		background-image: url(https://d2ciprw05cjhos.cloudfront.net/files/v3/styles/gs_large/public/images/15/09/shutterstock_236496097.jpg?itok=WRtWIoGM);
 		background-repeat: no-repeat;
 		background-size: 100% 100%;
@@ -53,14 +59,21 @@
       <ul class="nav navbar-nav">
         <li class="active"><a href="#">Home</a></li>
         <li><a href="../about">About</a></li>
+        <!-- <li><a href="../show">Account</a></li> -->
+        <% if logged_in? %>
+          <li> <%= link_to "Account", user_path(current_user) %> </li>
+        <% end %>
       </ul>
 
       <ul class="nav navbar-nav navbar-right">
 
 	      <!-- 	      add in href link to sign up page once it is built -->
-	<!--      <li><a href="#">Sign Up</a></li> -->
-        <li><a href="../users/new">Sign Up</a></li>
-        <li><a href="../login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+        <% if !logged_in?%>
+  	      <li><a href="#">Sign Up</a></li>
+          <li><a href="../login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+        <% else %>
+          <li><%= link_to "Log out", logout_path, method: :delete %></li>
+        <% end %>
 
       </ul>
     </div>

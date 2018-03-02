@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+	before_action :correct_user, only: [:edit, :show, :update]
 	def new
 		#render 'signup'
 		@user=User.new
@@ -7,11 +8,10 @@ class UsersController < ApplicationController
 
 	end
 	def show
-		# @user = User.find(params[:id])
-		# redirect_to edit_user_path(@user)
-		render 'edit'
+		 @user = User.find(params[:id])
 	end
 	def edit
+		
 		correct_user
 	end
 	def update

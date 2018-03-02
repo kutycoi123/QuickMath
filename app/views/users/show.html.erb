@@ -1,8 +1,7 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>Log In</title>
+  <title>Account</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -10,7 +9,16 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   <style>
 
-    /* Remove the navbar's default margin-bottom and rounded borders */ 
+       /*User show page*/
+    
+    body {
+      padding-top: 60px;
+      margin: 0 0 15px;
+      background-color: #f6f6f6;
+     }
+    
+     /* Remove the navbar's default margin-bottom and rounded borders */ 
+
     .navbar {
         margin-bottom: 0;
         border-radius: 0;
@@ -25,7 +33,7 @@
    .row.content {height: 605px} 
     
     /* Set black background color, white text and some padding */
-      footer { 
+     footer { 
         position: absolute;
         bottom: 0;
         background-color: #555;
@@ -33,41 +41,11 @@
         padding: 15px;
         width: 100%;
     }
-    
-
-    .lb{
-/* 	margin-left: 0%; */
-  
-}
-
-.login input[type=text]{
-  width: 100%;
-    padding: 12px 20px;
-    margin: 8px 0;
-    display: inline-block;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    box-sizing: border-box;
-    width: 40%;
-    margin-right: 30%;
-    margin-left: 30%;
-}
-.custom-login-input{
-    padding: 3px;
-    border-radius: 6px;
-    width: 50%;
-    margin-left: 25%;
-    margin-right: 25%; 
-}
-
-.custom-login-input div{
-  border: 0px solid white;
-}
-    
     </style>
-	</head>
+  </head>
+  
+  
 <body>
-
 <nav class="navbar navbar-inverse">
   <div class="container-fluid">
     <div class="navbar-header">
@@ -82,50 +60,58 @@
       <ul class="nav navbar-nav">
         <li><a href="../welcome">Home</a></li>
         <li><a href="../about">About</a></li>
-       
+        <li class="active"><a href="#">Account</a></li>
+        
       </ul>
+      
       <ul class="nav navbar-nav navbar-right">
 	      
-	      <!-- 	      add in href link to sign up page once it is built -->
-	      <% if !logged_in?%>
+<!-- 	      this doesn't actually log the user out, just re routes to log in -->
+        <!-- <li><a href="../login"><span class="glyphicon glyphicon-log-in"></span> Log Out</a></li> -->
+        <% if !logged_in?%>
           <li><a href="#">Sign Up</a></li>
           <li><a href="../login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
         <% else %>
           <li><%= link_to 'Logout', logout_path, method: :delete%></li>
         <% end %>
+         
       </ul>
     </div>
   </div>
 </nav>
-  
-<div class="container-fluid text-center">    
-  <div class="row content">
-      <h1>Log In</h1>
-            <hr>
-            
-        <% provide(:title, "Log in") %>
-<div>
-	<div class="login">
-		<%= form_for(:session, url: login_path) do |f|%>
-		<%= f.label :email, class: "lb"%>
-		<%= f.email_field :email, class: "custom-login-input"%>
-		<%= f.label :password, class: "lb"%>
-		<%= f.password_field :password, class: "custom-login-input"%>
 
-		<%= f.label :remember_me, class: "lb" do%>
-			<%= f.check_box :remember_me%>
-			<span>Remember me on this computer</span>
-		<% end %>
-
-		<%= f.submit "Log in", class: "custom-login-input"%>
-
-	<% end %>
-	</div>
-	</div>       
-            
-    </div>
-    
+<div class="container">
+<div class="user_show_wrapper">
+  <div class="user_header col-md-10">
+      <div class="row">
+          <div class="user_avatar col-md-1">
+            <%= gravatar_for @user%>
+          </div>
+          <div class="user_name col-md-2" >
+            <h3><%= @user.name%></h3>
+          </div>
+      </div>
   </div>
+  <div class="user_add_course col-md-10">
+    <div class="page_banner col-md-6">
+      Share and get free notes for a specific course
+    </div>
+    <%= link_to new_user_course_path(@user) do %>
+      <div class="add_course_button btn btn-success ">
+         Add Courses
+      </div>
+    <% end %>
+  </div>
+  <div class="user_courses_wrapper">
+        <% @user.courses.each do |x|%>
+          <%= link_to course_path(x) do %>
+              <div class="user_course col-md-3">
+                <div class="course_name"><%=x.name%></div>
+              </div>
+          <% end %>
+        <% end %>
+  </div>
+</div>
 </div>
 
 <footer class="container-fluid text-center">

@@ -1,7 +1,7 @@
 class User < ApplicationRecord
 	has_secure_password
 	has_many :notes
-	has_and_belongs_to_many :courses
+	has_many :course_folders
 
 	validates :name, presence: true, length: {maximum: 50}
 	VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-]+(\.[a-z\d\-]+)*\.[a-z]+\z/i

@@ -11,27 +11,29 @@ user = User.create!(name: "testuser",
 user1 = User.create!(name: "testuser1",
 				email: "testuser1234@gmail.com",
 				password: "123456", password_confirmation: "123456")
-course_1 = Course.create!(name: "CMPT 276",
+courseFolder_1 = CourseFolder.create!(name: "CMPT 276",
 						  title: "Introduction to Software Engineering",
-						  description: "Required course for co-op")
-course_2 = Course.create!(name: "CMPT 295",
+						  year: 2018, term: "Spring", user_id: 1)
+courseFolder_2 = CourseFolder.create!(name: "CMPT 295",
 						  title: "Introduction to operator system",
-						  description: "Required course for co-op")
+						  year: 2018, term: "Spring", user_id: 2)
+course_1 = Course.create(name: "CMPT 295", title: "Introduction to operating systems", description: "")
+course_2 = Course.create(name: "CMPT 276", title: "Introduction to software engineering", description: "")
+
 note_1 = Note.create!(course_name: "CMPT 276",
 					  title: "Lecture 1-10",
 					  description: "",
 					  user_id: 1,
-					  course_id: 1)
+					  course_folder_id: 1)
 note_2 = Note.create!(course_name: "CMPT 295",
 					  title: "Lecture 1-10",
 					  description: "",
-					  user_id: 1,
-					  course_id: 2)
+					  user_id: 2,
+					  course_folder_id: 2)
 note_3 = Note.create!(course_name: "CMPT 276",
 					  title: "Lecture 11-20",
 					  description: "",
-					  user_id: 2,
-					  course_id: 1)
-user.courses << course_1
-user.courses << course_2
-user1.courses << course_1
+					  user_id: 1,
+					  course_folder_id: 1)
+# user.course_folders << courseFolder_1
+# user1.course_folders << courseFolder_2

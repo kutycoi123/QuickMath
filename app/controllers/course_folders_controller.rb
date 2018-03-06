@@ -1,6 +1,6 @@
-class CoursesController < ApplicationController
+class CourseFoldersController < ApplicationController
 	def show
-		@course = Course.find(params[:id])
+		@course_folder = CourseFolder.find(params[:id])
 		
 		# allNotes = @course.notes.to_a
 		# @user_notes = []
@@ -9,17 +9,21 @@ class CoursesController < ApplicationController
 		# 						note.user_id != @user.id}
 		# end
 		# @non_user_notes = allNotes
-
-		@non_user_notes = @course.notes
+		@non_user_notes = []
 		@user_notes = []
+		# CourseFolder.find(name: @course_folder.name) { |f| @non_user_notes += f.notes }
+		CourseFolder.all.each do |f|
+			@non_user_notes += f.notes if f.name == @course_folder.name
+		end
+		
 		@user = current_user
-		if @user
+		if @user 
 			if params[:user_id] && @user != User.find(params[:user_id])
 				#flash[:danger] = "User not found"
 				redirect_to root_path
 			end
 			if correct_user?(@user)
-				@user_notes = @non_user_notes.where("user_id = ?", @user.id)
+				@non_user_notes.select {|f| @user_notes << f if f.user_id == @user.id}
 				@non_user_notes -= @user_notes
 			else
 				#flash[:danger] = "You are not allowed to see other people's information"
@@ -39,12 +43,13 @@ class CoursesController < ApplicationController
 		end
 	end
 	def create
-		@course = Course.find_by(name: params[:course][:name])
+		@course = Course.find_by(name: params[:course_folder][:name])
 		@user = User.find(params[:user_id])
 		if correct_user?(@user)
 			if @course
-				if !@user.courses.include?(@course)
-					@user.courses << @course
+				if !@user.course_folders.any? {|x| x.name == @course.name}
+					@course_folder = CourseFolder.create(name: @course.name)
+					@user.course_folders << @course_folder
 					if @user.save
 						flash[:success] = "Add course successfully"
 						redirect_to user_path(@user)

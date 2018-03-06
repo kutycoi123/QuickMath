@@ -99,15 +99,15 @@
     <div class="page_banner col-md-6">
       Share and get free notes for a specific course
     </div>
-    <%= link_to new_user_course_path(@user) do %>
+    <%= link_to new_user_course_folder_path(@user) do %>
       <div class="add_course_button btn btn-success ">
          Add Courses
       </div>
     <% end %>
   </div>
   <div class="user_courses_wrapper">
-        <% @user.courses.each do |x|%>
-          <%= link_to course_path(x) do %>
+        <% @user.course_folders.each do |x|%>
+          <%= link_to course_folder_path(x) do %>
               <div class="user_course col-md-3">
                 <div class="course_name"><%=x.name%></div>
               </div>

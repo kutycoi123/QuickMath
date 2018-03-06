@@ -1,9 +1,9 @@
 <div class="container">
 	<div class="col-md-6 col-md-offset-3">
 		<div class="row">
-			<%= form_for ([current_user, Course.new]) do |f|%>
+			<%= form_for ([current_user, CourseFolder.new]) do |f|%>
 				<%= f.label :course_name%>
-				<%= f.text_field :name, placeholder: "CMPT120", class: 'form-control' %>
+				<%= f.text_field :name, placeholder: "Enter course code", class: 'form-control' %>
 				<%= f.submit "Save", class: "btn btn-primary" %>
 			<% end %>
 		</div>

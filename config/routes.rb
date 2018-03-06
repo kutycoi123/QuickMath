@@ -3,9 +3,9 @@ Rails.application.routes.draw do
   root 'pages#welcome'
 
   resources :users do
-    resources :courses
+    resources :course_folders
   end
-  resources :courses
+  resources :course_folders
   get   'sessions/new'
 
   get   'pages/welcome'

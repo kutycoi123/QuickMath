@@ -10,7 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180227062448) do
+ActiveRecord::Schema.define(version: 20180306002058) do
+
+  create_table "course_folders", force: :cascade do |t|
+    t.string "name"
+    t.string "title"
+    t.integer "year"
+    t.string "term"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "user_id"
+  end
 
   create_table "courses", force: :cascade do |t|
     t.string "name"
@@ -18,11 +28,6 @@ ActiveRecord::Schema.define(version: 20180227062448) do
     t.text "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-  end
-
-  create_table "courses_users", id: false, force: :cascade do |t|
-    t.integer "course_id", null: false
-    t.integer "user_id", null: false
   end
 
   create_table "file_items", force: :cascade do |t|
@@ -53,8 +58,8 @@ ActiveRecord::Schema.define(version: 20180227062448) do
     t.text "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "course_id"
     t.integer "user_id"
+    t.integer "course_folder_id"
   end
 
   create_table "users", force: :cascade do |t|

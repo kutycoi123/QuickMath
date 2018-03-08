@@ -6,6 +6,7 @@ Rails.application.routes.draw do
     resources :course_folders
   end
   resources :course_folders
+  resources :courses
   get   'sessions/new'
 
   get   'pages/welcome'

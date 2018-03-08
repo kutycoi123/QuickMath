@@ -1,36 +1,6 @@
 class CourseFoldersController < ApplicationController
 	def show
-		@course_folder = CourseFolder.find(params[:id])
 		
-		# allNotes = @course.notes.to_a
-		# @user_notes = []
-		# if @user = current_user
-		# 	allNotes.select! {|note| @user_notes << note if note.user_id == @user.id
-		# 						note.user_id != @user.id}
-		# end
-		# @non_user_notes = allNotes
-		@non_user_notes = []
-		@user_notes = []
-		# CourseFolder.find(name: @course_folder.name) { |f| @non_user_notes += f.notes }
-		CourseFolder.all.each do |f|
-			@non_user_notes += f.notes if f.name == @course_folder.name
-		end
-		
-		@user = current_user
-		if @user 
-			if params[:user_id] && @user != User.find(params[:user_id])
-				#flash[:danger] = "User not found"
-				redirect_to root_path
-			end
-			if correct_user?(@user)
-				@non_user_notes.select {|f| @user_notes << f if f.user_id == @user.id}
-				@non_user_notes -= @user_notes
-			else
-				#flash[:danger] = "You are not allowed to see other people's information"
-				redirect_to user_path(@user)
-			end
-		
-		end
 	end
 	def new
 		if !params[:user_id]

@@ -4,6 +4,15 @@
 			<%= form_for ([current_user, CourseFolder.new]) do |f|%>
 				<%= f.label :course_name%>
 				<%= f.text_field :name, placeholder: "Enter course code", class: 'form-control' %>
+				<%= f.label :title %>
+				<%= f.text_field :title,  class: 'form-control'%>
+
+				<%= f.label :year%>
+				<%= f.number_field :year,  class: 'form-control'%>
+
+				<%= f.label :term%>
+				
+				<%= select_tag(:term, options_for_select([['Spring', 1], ['Summer', 2], ['Fall', 3]]),  class: 'form-control') %>
 				<%= f.submit "Save", class: "btn btn-primary" %>
 			<% end %>
 		</div>

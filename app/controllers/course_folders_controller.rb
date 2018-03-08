@@ -1,6 +1,10 @@
 class CourseFoldersController < ApplicationController
+	require 'RMagick'
+  	include Magick
 	def show
-		
+		@course_folder = CourseFolder.find(params[:id])
+		@notes = @course_folder.notes
+		@user = @course_folder.user
 	end
 	def new
 		if !params[:user_id]
@@ -41,4 +45,46 @@ class CourseFoldersController < ApplicationController
 		end
 
 	end
+	def edit
+		@course_folder = CourseFolder.find(params[:id])
+	end
+	def upload
+		@course_folder = CourseFolder.find(params[:id])
+		if params[:notes]
+				params[:notes].each { |item|
+					itm = @course_folder.notes.create(item: item)
+					thumbPath = File.dirname(itm.item.path) + "/" + itm.item_file_name.split('.')[0] + "_thumb.jpg"
+					thumbnail = ImageList.new(itm.item.path)
+					thumbnail[0].thumbnail!(276, 200).write(thumbPath)
+
+					thumbFile = File.new(thumbPath)
+					itm.update_attributes(thumbnail: thumbFile)
+				}
+		end
+		redirect_to course_folder_path(@course_folder)
+	end
+	def update
+		@course_folder = CourseFolder.find(params[:id])
+		if @course_folder.update_attributes(course_folder_params)
+			if params[:notes]
+				params[:notes].each { |item|
+					itm = @course_folder.notes.create(item: item)
+					thumbPath = File.dirname(itm.item.path) + "/" + itm.item_file_name.split('.')[0] + "_thumb.jpg"
+					thumbnail = ImageList.new(itm.item.path)
+					thumbnail[0].thumbnail!(276, 200).write(thumbPath)
+
+					thumbFile = File.new(thumbPath)
+					itm.update_attributes(thumbnail: thumbFile)
+				}
+			end
+			redirect_to course_folder_path(@course_folder)
+		else
+			flash[:danger] = "Can not upload this file"
+			render 'edit'
+		end
+	end
+	private
+		def course_folder_params
+			params.require(:course_folder).permit(:name, :title, :year, :term, :notes)
+		end
 end

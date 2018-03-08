@@ -1,0 +1,64 @@
+<div class="container">  
+  <div class="row">
+    <h1>Course Folder</h1>
+    <p>
+      <b>Course code: </b>
+      <%= @course_folder.name %>
+    </p>
+
+    <p>
+      <b>Title: </b>
+      <%= @course_folder.title %>
+    </p>
+    <p>
+      <b>Author: </b>
+      <%= @course_folder.user.name %>
+    </p>
+    <p>
+      <b>Term: <%= @course_folder.term %>, <%= @course_folder.year %></b>
+    </p>
+
+  <hr>
+  </div>
+
+  <div class="row">
+      <% if correct_user?(@user)%>
+        <div class="upload-form row">
+          <h3>Upload notes</h3>
+          <%= form_for @course_folder, url: {action: 'upload'}, :html => {multipart: true } do |f|%>
+          <div class="control-group">
+            <div class="controls"> 
+              <!-- The magic is coming ...look at my eyes....shazammmm -->
+              <%= file_field_tag "notes[]", type: :file, multiple: true, class: "upload-field" %>
+              <%= f.submit "Upload", :class => 'btn btn-success btn-upload' %>
+            </div>
+          </div>
+          <% end %>
+        </div>
+        <hr>
+      <% end %>
+      <h2>Notes</h2>
+    <div class="row">
+      <% unless @notes.empty? %>
+        <% @notes.each do |note| %>
+            <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 thumbnails">
+              <%= link_to image_tag(note.thumbnail.url), note.item.url %> 
+              <br>
+              <% if correct_user?(@user) %>
+                <div class="caption">
+                  <%=
+                      link_to "Delete picture", note,
+                        :data => { :confirm => "Are you sure?" },
+                        :method => :delete
+                  %>
+                </div>
+                <% end %>
+            </div>
+        <% end %>
+      <% end %>
+    </div>
+    </div>
+</div>
+
+
+

@@ -10,3 +10,63 @@
 .course_description{
 	text-align: center;
 }
+
+
+/* Show page*/
+.preview {
+  height: 100px;
+}
+
+.thumbnail a > img {
+  display: block;
+  max-width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.thumbnail .preview > img {
+  display: block;
+  max-width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+}
+.files .span3 {
+  width: 220px;
+}
+
+.files .span3 .thumbnail {
+  height: 137px;
+}
+
+.progress {
+  height: 8px;
+  margin-top: 10px;
+}
+.progress-success.progress-striped .bar {
+  background-color: #7D7D7D;
+}
+
+img {
+  max-width: none;
+}
+.form-horizontal .control-label {
+  text-align: left;
+}
+.form-horizontal input.text_field {
+  width: 600px;
+}
+
+.upload-form{
+  text-align: center;
+}
+.upload-field{
+  width: 50%;
+  margin-left: 25%;
+}
+.btn-upload{
+  width: 10%;
+  margin-top: 10px;
+}
+.thumbnails{
+  margin-bottom:20px;
+}

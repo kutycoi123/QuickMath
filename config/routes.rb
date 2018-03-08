@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   end
   resources :course_folders
   resources :courses
+  resources :notes
   get   'sessions/new'
 
   get   'pages/welcome'
@@ -27,5 +28,6 @@ Rails.application.routes.draw do
 
   delete '/logout',	to: 'sessions#destroy'
 
+  patch '/course_folders/:id/upload', to: 'course_folders#upload'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

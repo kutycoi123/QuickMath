@@ -1,6 +1,5 @@
 class User < ApplicationRecord
 	has_secure_password
-	has_many :notes
 	has_many :course_folders
 
 	validates :name, presence: true, length: {maximum: 50}

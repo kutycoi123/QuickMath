@@ -20,20 +20,5 @@ courseFolder_2 = CourseFolder.create!(name: "CMPT 295",
 course_1 = Course.create(name: "CMPT 295", title: "Introduction to operating systems", description: "")
 course_2 = Course.create(name: "CMPT 276", title: "Introduction to software engineering", description: "")
 
-note_1 = Note.create!(course_name: "CMPT 276",
-					  title: "Lecture 1-10",
-					  description: "",
-					  user_id: 1,
-					  course_folder_id: 1)
-note_2 = Note.create!(course_name: "CMPT 295",
-					  title: "Lecture 1-10",
-					  description: "",
-					  user_id: 2,
-					  course_folder_id: 2)
-note_3 = Note.create!(course_name: "CMPT 276",
-					  title: "Lecture 11-20",
-					  description: "",
-					  user_id: 1,
-					  course_folder_id: 1)
 # user.course_folders << courseFolder_1
 # user1.course_folders << courseFolder_2

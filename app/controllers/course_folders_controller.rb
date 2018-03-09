@@ -7,24 +7,21 @@ class CourseFoldersController < ApplicationController
 		@user = @course_folder.user
 	end
 	def new
-		if !params[:user_id]
-			if current_user
-				redirect_to new_user_course_path(current_user)
-			else
-				flash[:danger] = "Please login to add courses"
-				redirect_to login_path
-			end
+		if !logged_in?
+			flash[:danger] = "Please log in to add courses"
+			redirect_to login_path
 		end
+		@course_folder = CourseFolder.new
 	end
 	def create
 		@course = Course.find_by(name: params[:course_folder][:name])
-		@user = User.find(params[:user_id])
+		@course_folder = CourseFolder.new(course_folder_params)
+		@user = current_user
 		if correct_user?(@user)
-			if @course
+			if @course_folder
 				if !@user.course_folders.any? {|x| x.name == @course.name}
-					@course_folder = CourseFolder.create(name: @course.name)
 					@user.course_folders << @course_folder
-					if @user.save
+					if @user.save 
 						flash[:success] = "Add course successfully"
 						redirect_to user_path(@user)
 					else

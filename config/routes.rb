@@ -2,9 +2,10 @@ Rails.application.routes.draw do
 
   root 'pages#welcome'
 
-  resources :users do
-    resources :course_folders
-  end
+  # resources :users do
+  #   resources :course_folders
+  # end
+  resources :users
   resources :course_folders
   resources :courses
   resources :notes

@@ -18,7 +18,7 @@ class CourseFoldersController < ApplicationController
 		@course_folder = CourseFolder.new(course_folder_params)
 		@user = current_user
 		if correct_user?(@user)
-			if @course_folder
+			if @course
 				if !@user.course_folders.any? {|x| x.name == @course.name}
 					@user.course_folders << @course_folder
 					if @user.save 

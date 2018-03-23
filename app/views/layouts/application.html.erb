@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>QuickSFU</title>
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
@@ -9,11 +8,25 @@
   </head>
 
   <body>
+    <%= render 'layouts/header' %>
   	<div>
   	<% flash.each do |message_type, message| %>
         <%= content_tag(:div, message) %>
       <% end %>
     <%= yield %>
 	</div>
+
+  <%= render 'layouts/footer' %>
+
+  <script type="text/javascript">
+    if (document.baseURI == "http://localhost:3000/welcome") {
+      $("body").css({
+        paddingTop: "60px",
+        backgroundImage: "url(https://evanmccuish.files.wordpress.com/2017/01/6552664403_5795f590cc_b.jpg)",
+        backgroundRepeat: "no-repeat",
+        backgroundSize: "100% 100%"
+      })
+    }
+  </script>
   </body>
 </html>

@@ -1,126 +1,44 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <title>Sign Up</title>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   <style>
-
-    /* Remove the navbar's default margin-bottom and rounded borders */
-
-    .navbar {
-      margin-bottom: 0;
-      border-radius: 0;
-      position:fixed;
-      top: 0px;
-      right: 0px;
-      left: 0px;
-    }
-
-
-    /* Set height of the grid so .sidenav can be 100% (adjust as needed) */
-   .row.content {height: 605px}
-
-    /* Set black background color, white text and some padding */
-     footer {
-       position: absolute;
-       bottom: 0;
-       background-color: #555;
-       color: white;
-       padding: 15px;
-       width: 100%;
-    }
-    /* .signup input{
-      width: 100%;
-        padding: 12px 20px;
-        margin: 8px 0;
-        display: inline-block;
-        border: 1px solid #ccc;
-        border-radius: 4px;
-        box-sizing: border-box;
-        width: 40%;
-        margin-right: 30%;
-        margin-left: 30%;
-    } */
     .custom-login-input{
         padding: 3px;
         border-radius: 6px;
         width: 50%;
         margin-left: 25%;
         margin-right: 25%;
-    }
+    } 
+    </style>
 
-    /* .custom-login-input div{
-    border: 0px solid white;
-    } */
-	/*body {
-		background-image: url(https://d2ciprw05cjhos.cloudfront.net/files/v3/styles/gs_large/public/images/15/09/shutterstock_236496097.jpg?itok=WRtWIoGM);
-		background-repeat: no-repeat;
-		background-size: 100% 100%;
-    }
-*/
-
-	</style>
-	</head>
-<body>
-
-<nav class="navbar navbar-inverse">
-  <div class="container-fluid">
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-      <a class="navbar-brand">QSFU</a>
-    </div>
-    <div class="collapse navbar-collapse" id="myNavbar">
-      <ul class="nav navbar-nav">
-        <li class="active"><a href="../welcome">Home</a></li>
-        <li><a href="../about">About</a></li>
-      </ul>
-
-      <ul class="nav navbar-nav navbar-right">
-        <li><a href="../login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
-
-
-      </ul>
-    </div>
-  </div>
-</nav>
 <div class="container-fluid text-center">
-  <div class="row content">
-      <h1>Sign Up</h1>
-            <hr>
+  <title>Sign Up</title>
+         <div class="container-fluid text-center">
+            <div class="row content">
+                 <h1>Sign Up</h1>
+                        <hr>
 
         <% provide(:title, "Sign Up") %>
-<div class="signup">
-<%= form_for(@user, url: signup_path) do |f| %>
+        <div class="signup">
+        <%= form_for(@user, url: signup_path) do |f| %>
 
-      <%= f.label :name %>
-      <%= f.text_field :name, class: "custom-login-input" %>
+         <%= f.label :name %>
+        <%= f.text_field :name, class: "custom-login-input" %>
 
-      <%= f.label :email%>
-      <%= f.email_field :email , class: "custom-login-input"  %>
+        <%= f.label :email%>
+        <%= f.email_field :email , class: "custom-login-input"  %>
 
-      <%= f.label :password %>
-      <%= f.password_field :password, class: "custom-login-input" %>
+        <%= f.label :password %>
+        <%= f.password_field :password, class: "custom-login-input" %>
 
-      <%= f.label :password_confirmation, "Confirm Password" %>
-      <%= f.password_field :password_confirmation , class:"custom-login-input"%>
+        <%= f.label :password_confirmation, "Confirm Password" %>
+        <%= f.password_field :password_confirmation , class:"custom-login-input"%>
 
-<hr>
-      <%= f.submit "Sign Up", class: "custom-login-input" %>
-      <% end %>
+                    <hr>
+        <%= f.submit "Sign Up", class: "custom-login-input" %>
+        <% end %>
+        </div>
+    </div>
 </div>
 </div>
 
-<footer class="container-fluid text-center">
-  <p>Created by Rafid Ashab Pranto, Angad Aujla, Shayna Grose, Mario Imeri and Lam Nguyen. Spring 2018.</p>
-</footer>
 
-</body>
-</html>
+
+

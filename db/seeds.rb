@@ -15,10 +15,10 @@ courseFolder_1 = CourseFolder.create!(name: "CMPT 276",
 						  title: "Introduction to Software Engineering",
 						  year: 2018, term: "Spring", user_id: 1)
 courseFolder_2 = CourseFolder.create!(name: "CMPT 295",
-						  title: "Introduction to operator system",
+						  title: "Introduction to Operating Systems",
 						  year: 2018, term: "Spring", user_id: 2)
-course_1 = Course.create(name: "CMPT 295", title: "Introduction to operating systems", description: "")
-course_2 = Course.create(name: "CMPT 276", title: "Introduction to software engineering", description: "")
+course_1 = Course.create(name: "CMPT 295", title: "Introduction to Operating Systems", description: "")
+course_2 = Course.create(name: "CMPT 276", title: "Introduction to Software Engineering", description: "")
 
 # user.course_folders << courseFolder_1
 # user1.course_folders << courseFolder_2

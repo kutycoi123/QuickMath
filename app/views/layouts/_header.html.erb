@@ -6,12 +6,12 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand">QSFU</a>
+      <a class="navbar-brand" href="../welcome">QSFU</a>
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav">
-        <li class="active"><a href="../welcome">Home</a></li>
-        <li><a href="../about">About</a></li>
+        <li id="home-btn"><a href="../welcome">Home</a></li>
+        <li id="about-btn"><a href="../about">About</a></li>
         <!-- <li><a href="../show">Account</a></li> -->
         <% if logged_in? %>
           <li> <%= link_to "Account", user_path(current_user) %> </li>

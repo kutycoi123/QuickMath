@@ -3,7 +3,7 @@
 @import "font-awesome";
 body {
   padding-top: 60px;
-  background-color: #f6f6f6;
+  background-color: #f6f6f6 !important;
 }
 
 section {
@@ -26,6 +26,7 @@ textarea {
 
 h1, h2, h3, h4, h5, h6 {
   line-height: 1;
+  font-family: "Lucida Console", Monaco, monospace !important;
 }
 
 h1 {

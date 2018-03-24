@@ -1,5 +1,5 @@
 <nav class="navbar navbar-inverse">
-  <div class="container-fluid">
+  <div class="container-fluid" id="nav-field">
     <div class="navbar-header">
       <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
         <span class="icon-bar"></span>
@@ -16,6 +16,23 @@
         <% if logged_in? %>
           <li> <%= link_to "Account", user_path(current_user) %> </li>
         <% end %>
+        <li>
+            <%= form_for(:course, url: "courses#search", :html => {:class => 'form-inline custom-search-input', :id => 'search-form'}) do |f| %>
+              <div class="input-group col-md-12">
+                <!-- <input id="search-input" class="form-control mr-sm-2" type="search" placeholder="Search by course codes" aria-label="Search" name="course[name]"> -->
+                <%= f.text_field :course_name, data: {autocomplete_source: Course.order(:name).map(&:name)}, class: "form-control mr-sm-2", id: "search-input", placeholder: "Search by courses code"%>
+                <!-- <button class="btn" type="button">
+                      <i class="glyphicon glyphicon-search"></i>
+                </button> -->
+                <span class="input-group-btn">
+                          <button class="btn  btn-lg" type="button">
+                              <i class="glyphicon glyphicon-search"></i>
+                          </button>
+                </span>
+              </div>
+            <% end %>
+        </li>
+
       </ul>
 
       <ul class="nav navbar-nav navbar-right">

@@ -23,4 +23,19 @@ class CoursesController < ApplicationController
 		
 		end
 	end
+	def search
+		@course = Course.find_by(name: params[:course][:name])
+		if @course
+			redirect_to course_path(@course)
+		else
+			flash[:danger] = "Course not found."
+			redirect_to root_path
+		end
+	end
+	private
+	def course_params
+		params.require(:course).permit(:name)
+	end
+
+
 end

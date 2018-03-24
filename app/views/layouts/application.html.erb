@@ -23,11 +23,13 @@
     var baseURI = document.baseURI;
     if (baseURI == "http://localhost:3000/welcome" || baseURI == "http://localhost:3000/" ) {
       $("body").css({
-        paddingTop: "60px",
-        backgroundImage: "url(https://evanmccuish.files.wordpress.com/2017/01/6552664403_5795f590cc_b.jpg)",
-        backgroundRepeat: "no-repeat",
-        backgroundSize: "100% 100%"
-      })
+          paddingTop: "160px",
+          backgroundImage: " url(https://c2.staticflickr.com/8/7172/6552664403_5795f590cc_b.jpg)",
+          backgroundRepeat: "no-repeat",
+          backgroundSize: "100% 100%",
+          backgroundOrigin: "content-box",
+        })
+
       $("#home-btn").addClass("active");
     }else if (document.baseURI == "http://localhost:3000/about") {
       $("#about-btn").addClass("active");

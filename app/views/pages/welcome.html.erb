@@ -2,9 +2,78 @@
 
 <div class="container-fluid text-center">
   <div class="row content" id = "welcome">
-      <h1>Welcome to QuickSFU</h1>
+    <h1>Welcome to QuickSFU</h1>
+    <% if !logged_in? %>
+		    <a id="modal_trigger_1" href="#sign_up_modal" class="btn"> Sign up</a> 
+		  	<a id="modal_trigger_2" href="#login_modal" class="btn">Login</a> 
+	<% end %>
+  	<div id="sign_up_modal" class="popupContainer" style="display:none;">
+  		<header class="popupHeader">
+  			<span class="popup_title">Sign up</span>
+  			<span class="modal_close"><i class="fa fa-times" aria-hidden="true"></i></span> 
+  			<!-- <span class="modal_close" aria-label="Close">&times;</span> -->
+  		</header>
 
+  		<div class="popupBody user_signup">
+				<div class="signup">
+					<%= form_for(User.new, url: signup_path) do |f| %>
+
+					      <%= f.label :name %>
+					      <%= f.text_field :name%>
+					      <br>
+					      <%= f.label :email%>
+					      <%= f.email_field :email %>
+					      <br>
+					      <%= f.label :password %>
+					      <%= f.password_field :password %>
+					      <br>
+					      <%= f.label :password_confirmation, "Confirm Password" %>
+					      <%= f.password_field :password_confirmation %>
+
+						  <hr>
+						  <div class="action_btns">
+						 	 <div class="one_half last">
+					      		<%= f.submit "Register", class: "btn btn_red" %>
+					      	 </div>
+					      </div>
+					<% end %>
+				</div>
+  		</div>
+  	</div>
+  	<div id="login_modal" class="popupContainer" style="display:none;">
+  		<header class="popupHeader">
+  			<span class="popup_title">Login</span>
+  			<span class="modal_close"><i class="fa fa-times" aria-hidden="true"></i></span> 
+  			<!-- <span class="modal_close" aria-label="Close">&times;</span> -->
+  		</header>
+  		<div class="popupBody user_login">
+			<%= form_for(:session, url: login_path) do |f|%>
+				<%= f.label :email%>
+				<%= f.email_field :email%>
+				<br>
+				<%= f.label :password%>
+				<%= f.password_field :password%>
+				<br>
+
+				<%= f.label :remember_me do%>
+					<%= f.check_box :remember_me%>
+					<span>Remember me on this computer</span>
+				<% end %>
+				<hr>
+
+				<div class="action_btns">
+				 	 <div class="one_half last">
+			      		<%= f.submit "Login", class: "btn btn_red" %>
+			      	 </div>
+				</div>
+
+			<% end %>
+
+			<a href="#" class="forgot_password">Forgot password?</a>
+		</div>
+  	</div>
   </div>
 </div>
+
 
 

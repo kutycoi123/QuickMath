@@ -10,6 +10,8 @@ end
 gem 'paperclip'
 gem 'rmagick'
 gem 'rails', '~> 5.1.4'
+gem 'font-awesome-rails'
+gem 'jquery-ui-rails'
 gem 'jquery-rails',   '4.3.1'
 gem 'bootstrap-sass', '3.3.7'
 #gem 'bootstrap', '~> 4.0.0'

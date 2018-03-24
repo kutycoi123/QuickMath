@@ -5,6 +5,7 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <script src="/assets/jquery.leanModal.min.js" type="text/javascript"></script>
   </head>
 
   <body>
@@ -19,7 +20,8 @@
   <%= render 'layouts/footer' %>
 
   <script type="text/javascript">
-    if (document.baseURI == "http://localhost:3000/welcome") {
+    
+    if (document.baseURI.includes("http://localhost:3000/welcome")) {
       $("body").css({
         paddingTop: "60px",
         backgroundImage: "url(https://evanmccuish.files.wordpress.com/2017/01/6552664403_5795f590cc_b.jpg)",
@@ -27,6 +29,17 @@
         backgroundSize: "100% 100%"
       })
     }
+    $("#modal_trigger_1").leanModal({
+      top: 100,
+      overlay: 0.6,
+      closeButton: ".modal_close"
+    });
+    $("#modal_trigger_2").leanModal({
+      top: 100,
+      overlay: 0.6,
+      closeButton: ".modal_close"
+    });
+    
   </script>
   </body>
 </html>

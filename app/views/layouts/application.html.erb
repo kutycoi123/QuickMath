@@ -44,7 +44,12 @@
       overlay: 0.6,
       closeButton: ".modal_close"
     });
-    
+    jQuery(function() {
+  return $('#search-input').autocomplete({
+    source: $('#search-input').data('autocomplete-source'),
+    minLength:2
+  });
+});
   </script>
   </body>
 </html>

@@ -9,13 +9,28 @@
   	<div id="sign_up_modal" class="popupContainer" style="display:none;">
   		<header class="popupHeader">
   			<span class="popup_title">Sign up</span>
-  			<span class="modal_close"><i class="fa fa-times" aria-hidden="true"></i></span> 
+  			<span class="modal_close signup_close"><i class="fa fa-times" aria-hidden="true"></i></span> 
   			<!-- <span class="modal_close" aria-label="Close">&times;</span> -->
   		</header>
   		<div class="popupBody user_signup">
 				<div class="signup">
 					<%= form_for(@user, url: signup_path) do |f| %>
-						
+						  <% if singupErrorsDetected? %>
+						  	<% if !PagesHelper.getSignUpErrors.nil?%>
+						  		<% errorsList = PagesHelper.getSignUpErrors%>
+						  		<div id="error_explanation">
+						  		<div class="alert alert-danger">
+							      The form contains <%= pluralize(errorsList.count, "error") %>.
+							    </div>
+								    <ul>
+								    <% errorsList.each do |msg| %>
+								      <li><%= msg %></li>
+								    <% end %>
+								    </ul>
+								  </div>
+							<% end %>
+						  <% end %>
+						  
 					      <%= f.label :name %>
 					      <%= f.text_field :name%>
 					      <br>
@@ -41,11 +56,24 @@
   	<div id="login_modal" class="popupContainer" style="display:none;">
   		<header class="popupHeader">
   			<span class="popup_title">Login</span>
-  			<span class="modal_close"><i class="fa fa-times" aria-hidden="true"></i></span> 
+  			<span class="modal_close login_close"><i class="fa fa-times" aria-hidden="true"></i></span> 
   			<!-- <span class="modal_close" aria-label="Close">&times;</span> -->
   		</header>
   		<div class="popupBody user_login">
 			<%= form_for(:session, url: login_path) do |f|%>
+				<% if loginErrorsDetected? %>
+				  	<% if !PagesHelper.getLoginErrors.nil?%>
+				  		<% errorsList = PagesHelper.getLoginErrors%>
+				  		<div id="error_explanation">
+				  		
+						    <ul>
+						    <% errorsList.each do |msg| %>
+						      <li><%= msg %></li>
+						    <% end %>
+						    </ul>
+						  </div>
+					<% end %>
+				<% end %>
 				<%= f.label :email%>
 				<%= f.email_field :email%>
 				<br>

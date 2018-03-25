@@ -7,10 +7,13 @@ class UsersController < ApplicationController
 		@user = User.new(user_params)
 		if @user.save
 			flash[:success] = "Sign up successful. Try logging in the system"
+			setSignUpErrorsDetected(false)
 			redirect_to login_path
 		else
 			flash[:danger] = "Please try to sign up again"
-			redirect_to welcome_path
+			setSignUpErrorsDetected(true)
+			setSignUpErrors(@user.errors.full_messages)
+			redirect_to welcome_path(error_param: @user)
 		end
 	end
 	def show

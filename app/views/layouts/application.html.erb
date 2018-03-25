@@ -43,11 +43,25 @@
       closeButton: ".modal_close"
     });
     jQuery(function() {
-  return $('#search-input').autocomplete({
-    source: $('#search-input').data('autocomplete-source'),
-    minLength:2
-  });
-});
+      return $('#search-input').autocomplete({
+      source: $('#search-input').data('autocomplete-source'),
+      minLength:2
+      });
+    });
+    <% if singupErrorsDetected? %>
+      $("#modal_trigger_1").click();
+    <% end %>
+    <% if loginErrorsDetected? %>
+      $("#modal_trigger_2").click();
+    <% end %>
+    $(".modal_close .signup_close").click(function(){
+      <% setSignUpErrorsDetected(false)%>
+      <% setSignUpErrors([])%>
+    });
+    $(".modal_close .login_close").click(function(){
+      <% setLoginErrorsDetected(false)%>
+      <% setLoginErrors([])%>
+    });
   </script>
   </body>
       <%= render 'layouts/footer' %>

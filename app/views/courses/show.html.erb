@@ -12,8 +12,9 @@
 
   <div class="list_of_note">
     <% @user_folders.each do |x| %>
-
+      <%= link_to course_folder_path(x) do %>
       <div class="note panel panel-default">
+      
         <aside class="col-md-4">
           <section class="note_info">
           
@@ -39,6 +40,7 @@
           </section>
         </aside>
       </div>
+      <% end %>
       <div>
         <button class="social-like" >
             <span class="like"><i class="glyphicon glyphicon-thumbs-up"></i></span>
@@ -52,9 +54,10 @@
              <span class="like"><i class="glyphicon glyphicon-thumbs-down"></i></span>
         </button>
       </div>
-    <% end %>
-
+    
+  <% end %>
     <% @non_user_folders.each do |x| %>
+      <%= link_to course_folder_path(x) do %>
       <div class="note panel panel-default">
         <aside class="col-md-4">
           <section class="note_info">
@@ -75,6 +78,7 @@
           </section>
         </aside>
       </div>
+      <% end %>
       <div>
         <button class="social-like" >
                  <span class="like"><i class="glyphicon glyphicon-thumbs-up"></i></span>
@@ -85,7 +89,8 @@
              <span class="dislike" >0</span>
              <span class="like"><i class="glyphicon glyphicon-thumbs-down"></i></span>
         </button>  
-      </div>    
+      </div> 
+     
     <% end %>
 
   </div>

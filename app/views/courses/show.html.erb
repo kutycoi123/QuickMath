@@ -1,3 +1,6 @@
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
 <div class="container" >
 <div class="row">
   <div class="course_header">
@@ -6,25 +9,28 @@
     <%= link_to "Add notes",  "#", class: "add_note"%>
     <hr>
   </div>
+
   <div class="list_of_note">
     <% @user_folders.each do |x| %>
-      <div class="note">
+
+      <div class="note panel panel-default">
         <aside class="col-md-4">
           <section class="note_info">
           
           <p></p>
-          <h1>
-            Title: <%= x.title%>
-          </h1>
+          <i class="material-icons" style="font-size:60px;color:black">folder</i>
           <p></p>
+
           <h1>
             Author: <%= @user.name %>
           </h1>
+
           <p></p>
           <h1>
             Term: <%= x.term %>, <%= x.year%>
           </h1>
           <p></p>
+
           <p>
             <%= link_to "Show", '#'%>/
             <%= link_to "Edit", '#'%>/
@@ -33,16 +39,30 @@
           </section>
         </aside>
       </div>
+      <div>
+        <button class="social-like" >
+            <span class="like"><i class="glyphicon glyphicon-thumbs-up"></i></span>
+            <span class="count" >0</span>
+        </button>
+        
+        &nbsp;
+
+        <button class="social-dislike" >
+             <span class="dislike" >0</span>
+             <span class="like"><i class="glyphicon glyphicon-thumbs-down"></i></span>
+        </button>
+      </div>
     <% end %>
+
     <% @non_user_folders.each do |x| %>
-      <div class="note">
+      <div class="note panel panel-default">
         <aside class="col-md-4">
           <section class="note_info">
           
           <p></p>
-          <h1>
-            Title: <%= x.title%>
-          </h1>
+          <i class="material-icons" style="font-size:60px;color:black">folder</i>
+          <p></p>
+
           <p></p>
           <h1>
             Author: <%= x.user.name %>
@@ -55,7 +75,19 @@
           </section>
         </aside>
       </div>
+      <div>
+        <button class="social-like" >
+                 <span class="like"><i class="glyphicon glyphicon-thumbs-up"></i></span>
+                 <span class="count" >0</span>
+             </button>
+            &nbsp;
+        <button class="social-dislike" >
+             <span class="dislike" >0</span>
+             <span class="like"><i class="glyphicon glyphicon-thumbs-down"></i></span>
+        </button>  
+      </div>    
     <% end %>
+
   </div>
 
 </div>

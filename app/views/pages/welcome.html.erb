@@ -12,11 +12,10 @@
   			<span class="modal_close"><i class="fa fa-times" aria-hidden="true"></i></span> 
   			<!-- <span class="modal_close" aria-label="Close">&times;</span> -->
   		</header>
-
   		<div class="popupBody user_signup">
 				<div class="signup">
-					<%= form_for(User.new, url: signup_path) do |f| %>
-
+					<%= form_for(@user, url: signup_path) do |f| %>
+						
 					      <%= f.label :name %>
 					      <%= f.text_field :name%>
 					      <br>

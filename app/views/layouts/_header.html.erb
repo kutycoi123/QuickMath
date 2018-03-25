@@ -18,10 +18,10 @@
           <li> <%= link_to "Account", user_path(current_user) %> </li>
         <% end %>
         <li>
-            <%= form_for(:course, url: "courses#search", :html => {:class => 'form-inline custom-search-input', :id => 'search-form'}) do |f| %>
-              <div class="input-group col-md-12">
+            <%= form_for(:course, url: search_courses_path, :html => {:class => 'form-inline custom-search-input', :id => 'search-form'}) do |f| %>
+              <div class="input-group col-md-12 ui-widget">
                 <!-- <input id="search-input" class="form-control mr-sm-2" type="search" placeholder="Search by course codes" aria-label="Search" name="course[name]"> -->
-                <%= f.text_field :course_name, data: {autocomplete_source: Course.order(:name).map(&:name)}, class: "form-control mr-sm-2", id: "search-input", placeholder: "Search by courses code"%>
+                <%= f.text_field :name, data: {autocomplete_source: Course.order(:name).map(&:name)}, class: "form-control mr-sm-2", id: "search-input", placeholder: "Search by courses code"%>
                 <!-- <button class="btn" type="button">
                       <i class="glyphicon glyphicon-search"></i>
                 </button> -->

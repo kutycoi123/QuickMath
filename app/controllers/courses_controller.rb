@@ -11,7 +11,7 @@ class CoursesController < ApplicationController
 		if @user 
 			if params[:user_id] && @user != User.find(params[:user_id])
 				#flash[:danger] = "User not found"
-				redirect_to root_path
+				redirect_to welcome_path
 			end
 			if correct_user?(@user)
 				@non_user_folders.select {|f| @user_folders << f if f.user_id == @user.id}
@@ -29,7 +29,7 @@ class CoursesController < ApplicationController
 			redirect_to course_path(@course)
 		else
 			flash[:danger] = "Course not found."
-			redirect_to root_path
+			redirect_to welcome_path
 		end
 	end
 	private

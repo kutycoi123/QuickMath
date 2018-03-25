@@ -9,13 +9,8 @@ Rails.application.routes.draw do
   resources :course_folders
   resources :courses
   resources :notes
-  get   'sessions/new'
-
-  get   'pages/welcome'
-
-  get   'about',    to: 'pages#about'
-
-  get    '/show',    to: 'users#show'
+  
+  get   '/about',    to: 'pages#about'
 
   get   '/welcome', to: 'pages#welcome'
 
@@ -30,5 +25,7 @@ Rails.application.routes.draw do
   delete '/logout',	to: 'sessions#destroy'
 
   patch '/course_folders/:id/upload', to: 'course_folders#upload'
+
+  post  '/courses/search', to: 'courses#search', as: "search_courses"
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

@@ -9,7 +9,8 @@ class UsersController < ApplicationController
 			flash[:success] = "Sign up successful. Try logging in the system"
 			redirect_to login_path
 		else
-			render 'new'
+			flash[:danger] = "Please try to sign up again"
+			redirect_to welcome_path
 		end
 	end
 	def show
@@ -17,7 +18,6 @@ class UsersController < ApplicationController
 	end
 	def edit
 
-		correct_user
 	end
 	def update
 		# @user = User.find(params[:id])

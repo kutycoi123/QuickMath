@@ -54,7 +54,7 @@ dep_list.each do |y|
 # end
 	course_list.each do |x|
 		  # puts x["title"]
-		 Course.create!(name: y["text"] + x["text"], title: x["title"], description: "")
+		 Course.create!(name: y["text"] + " " + x["text"], title: x["title"], description: "")
 	end
 rescue
 	next

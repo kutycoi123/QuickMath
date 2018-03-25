@@ -10,7 +10,6 @@ class UsersController < ApplicationController
 			setSignUpErrorsDetected(false)
 			redirect_to login_path
 		else
-			flash[:danger] = "Please try to sign up again"
 			setSignUpErrorsDetected(true)
 			setSignUpErrors(@user.errors.full_messages)
 			redirect_to welcome_path(error_param: @user)

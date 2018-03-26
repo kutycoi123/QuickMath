@@ -9,7 +9,7 @@ class UsersSignupTest < ActionDispatch::IntegrationTest
   		assert_no_difference 'User.count' do
   			post users_path, params: {user: {name: "", email: "user@invalid", password: "foo", password_confirmation: "bar"}}
   		end
-  		assert_template 'users/new'
+  		assert_template 'pages/welcome'
 	end
 
   test "valid signup information" do
@@ -22,7 +22,7 @@ class UsersSignupTest < ActionDispatch::IntegrationTest
 
     end
     follow_redirect!
-    assert_template 'users/show'
+    assert_template 'sessions/new'
     assert_not flash.empty?
   end
 

@@ -6,6 +6,8 @@ class SessionsController < ApplicationController
 		@user = User.find_by(email: params[:session][:email])
 		if @user && @user.authenticate(params[:session][:password])
 			log_in @user
+			#if remember box is checked (==1), remember(user), otherwise forget(user)
+			params[:session][:remember_me] == '1' ? remember(@user) : forget(@user)
 			flash.now[:success] = "Successfully logged in"
 			setLoginErrorsDetected(false)
 			redirect_to user_path(@user)
@@ -16,9 +18,7 @@ class SessionsController < ApplicationController
 		end
 	end
 	def destroy
-		if logged_in?
-			log_out
-		end
+		log_out if logged_in?
 		setSignUpErrorsDetected(false)
 		setLoginErrorsDetected(false)
 		redirect_to welcome_path

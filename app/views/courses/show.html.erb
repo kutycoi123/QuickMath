@@ -38,33 +38,36 @@
             <%= link_to "Delete", '#'%>
           </p>
           </section>
+          
         </aside>
+          <div class="">
+                <% @user_folders.each do |x| %>
+                <%= link_to like_course_folder_path(x), method: :put, remote: true do %>
+                  <button class="social-like" >
+                      <span class="like"><i class="glyphicon glyphicon-thumbs-up"></i></span>
+                      <span class="count" ><%= x.get_upvotes.size %></span>
+                  </button>
+              
+            <% end %>
+
+              <%= link_to dislike_course_folder_path(x), method: :put, remote: true do %>
+                <button class="social-dislike" >
+                   <span class="dislike" ><%= x.get_downvotes.size %></span>
+                   <span class="like"><i class="glyphicon glyphicon-thumbs-down"></i></span>
+              </button>
+              
+            <% end %>
+            <% end %>
+          </div>
       </div>
       <% end %>
       <div>
-        <button class="social-like" >
-            <span class="like"><i class="glyphicon glyphicon-thumbs-up"></i></span>
-            <span class="count" >0</span>
-        </button>
         
-        &nbsp;
-
-        <button class="social-dislike" >
-             <span class="dislike" >0</span>
-             <span class="like"><i class="glyphicon glyphicon-thumbs-down"></i></span>
-        </button>
         
-        <% @course_folders.each do |x| %>
-    <%= link_to like_course_folder_path(x), method: :put do %>
-  Upvote
-  <%= course_folder.get_upvotes.size %>
-<% end %>
-
-  <%= link_to dislike_course_folder_path(x), method: :put do %>
-  Downvote
-  <%= course_folder.get_downvotes.size %>
-<% end %>
-<% end %>
+     
+        
+        
+        
 
       </div>
     

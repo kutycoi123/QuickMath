@@ -1,12 +1,7 @@
 <div class="container-fluid text-center">
   <title>Account</title>
   
-        <% if !logged_in?%>
-          <li><a href="../signup">Sign Up</a></li>
-          <li><a href="../login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
-        <% else %>
-          <li><%= link_to 'Logout', logout_path, method: :delete%></li>
-        <% end %>
+        
 </div>
 
 <div class="container">

@@ -24,6 +24,10 @@ class CoursesController < ApplicationController
 		end
 	end
 	def search
+		if params[:course][:name].empty?
+			flash[:danger] = "Please enter the course codes"
+			redirect_to welcome_path and return
+		end
 		@course = Course.find_by(name: params[:course][:name])
 		if @course
 			redirect_to course_path(@course)

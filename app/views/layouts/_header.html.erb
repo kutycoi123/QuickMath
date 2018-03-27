@@ -39,14 +39,12 @@
       <ul class="nav navbar-nav navbar-right">
 
    
-        <% if !logged_in?%>
-          <li><a href="../signup">Sign Up</a></li>
-          <li><a href="../login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
-        <% else %>
+        <% if logged_in?%>
+          
           <li><%= link_to "Log out", logout_path, method: :delete %></li>
         <% end %>
 
-      </ul>
+      </ul> 
     </div>
   </div>
 </nav>

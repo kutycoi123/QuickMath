@@ -6,7 +6,14 @@ Rails.application.routes.draw do
   #   resources :course_folders
   # end
   resources :users
-  resources :course_folders
+  
+  resources :course_folders do
+    member do
+        put "like", to: "course_folders#upvote"
+        put "dislike", to: "course_folders#downvote"
+    end
+  end
+  
   resources :courses
   resources :notes
   

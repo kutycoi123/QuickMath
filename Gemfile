@@ -10,6 +10,7 @@ end
 gem 'httparty'
 gem 'paperclip'
 gem 'rmagick'
+gem 'acts_as_votable', '~> 0.10.0'
 gem 'rails', '~> 5.1.4'
 gem 'font-awesome-rails'
 gem 'jquery-ui-rails'

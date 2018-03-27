@@ -2,6 +2,8 @@ class User < ApplicationRecord
 
 	attr_accessor :remember_token #for remember me feature
 	
+    acts_as_voter
+    
 	has_many :course_folders
 
 	validates :name, presence: true, length: {maximum: 50}
@@ -45,5 +47,8 @@ class User < ApplicationRecord
 	def forget
 		update_attribute(:remember_digest, nil)
 	end
+    
+    
+    
 
 end

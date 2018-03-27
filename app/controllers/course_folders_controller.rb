@@ -80,6 +80,20 @@ class CourseFoldersController < ApplicationController
 			render 'edit'
 		end
 	end
+    
+    def upvote
+        @course_folder = CourseFolder.find(params[:id])
+        @course_folder.upvote_by current_user
+        redirect_to :back
+    end
+    
+    def downvote
+        @course_folder = CourseFolder.find(params[:id])
+        @course_folder.downvote_by current_user
+        redirect_to :back
+    end
+    
+    
 	private
 		def course_folder_params
 			params.require(:course_folder).permit(:name, :title, :year, :term, :notes)

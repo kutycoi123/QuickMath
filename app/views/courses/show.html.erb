@@ -53,6 +53,19 @@
              <span class="dislike" >0</span>
              <span class="like"><i class="glyphicon glyphicon-thumbs-down"></i></span>
         </button>
+        
+        <% @course_folders.each do |x| %>
+    <%= link_to like_course_folder_path(x), method: :put do %>
+  Upvote
+  <%= course_folder.get_upvotes.size %>
+<% end %>
+
+  <%= link_to dislike_course_folder_path(x), method: :put do %>
+  Downvote
+  <%= course_folder.get_downvotes.size %>
+<% end %>
+<% end %>
+
       </div>
     
   <% end %>

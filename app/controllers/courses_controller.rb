@@ -22,7 +22,16 @@ class CoursesController < ApplicationController
 			end
 		end
 		if params[:sort_by] && params[:sort_by] == "upvotes"
-			 @non_user_folders.sort_by {|f| f.get_upvotes.size}
+			 @user_folders = @user_folders.sort_by {|f| f.get_upvotes.size}
+			 @non_user_folders = @non_user_folders.sort_by {|f| f.get_upvotes.size}
+			 @user_folders.reverse!
+			 @non_user_folders.reverse!
+		elsif params[:sort_by] && params[:sort_by] == "downvotes"
+			@user_folders = @user_folders.sort_by {|f| f.get_downvotes.size}
+			@non_user_folders = @non_user_folders.sort_by {|f| f.get_downvotes.size}
+			@user_folders.reverse!
+			@non_user_folders.reverse!
+
 		end
 	end
 	def search
@@ -43,10 +52,6 @@ class CoursesController < ApplicationController
 		params.require(:course).permit(:name)
 	end
 
-	def sortByUpvote(array)
-		
-		return array.sort_by {|f| f.get_upvotes.size }
-	end
 
 
 end

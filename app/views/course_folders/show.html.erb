@@ -59,6 +59,7 @@
               <br>
               <% if correct_user?(@user) %>
                 <div class="caption">
+                  <h4><%= note.item_file_name.split('.')[0]%></h4>
                   <%=
                       link_to "Delete picture", note,
                         :data => { :confirm => "Are you sure?" },

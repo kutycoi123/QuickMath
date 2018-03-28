@@ -10,7 +10,7 @@ class SessionsController < ApplicationController
 	    		params[:session][:remember_me] == '1' ? remember(@user) : forget(@user)
 	    		flash.now[:success] = "Successfully logged in"
 	    		setLoginErrorsDetected(false)
-	    		redirect_back_or user_path(@user)
+	    		redirect_to user_path(@user)
 	    	else
 	    		message  = "Account not activated. "
 	    		message += "Check your email for the activation link."

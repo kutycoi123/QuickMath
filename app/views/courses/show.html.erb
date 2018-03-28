@@ -1,5 +1,4 @@
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
 
 <div class="container" >
 <div class="row">
@@ -12,8 +11,16 @@
 
   <div class="list_of_note">
   
-    <%= link_to "Sort by upvotes", course_path(@course, sort_by: "upvotes"), method: :get %>
-  
+     <p>
+    Sort by:
+    <%= form_for @course, url:  course_path(@course), method: :get, html: {class: "sort-form" } do |f|%>
+      <%= select_tag(:sort_by, options_for_select([['none'], ['upvotes'],['downvotes']]), class: 'sort-selection' ) %>
+    <%= f.submit "Sort", class: 'sort-submit'%>
+    <% end %>
+    </p>  
+    <!-- <p>
+      <%= link_to "upvotes", course_path(@course, sort_by: "upvotes") , method: :get %>
+    </p> -->
     <% @user_folders.each do |x| %>
         <%= link_to course_folder_path(x) do %>
         <div class="note panel panel-default" style="height:220px"">
@@ -110,3 +117,24 @@
 
 </div>
 </div>
+<script type="text/javascript">
+
+  var sortBy = document.querySelector('.sort-selection');
+  var sortForm = document.querySelector('.sort-form');
+  var url = new URL(document.URL);
+  var params = url.searchParams.get("sort_by");
+  if (params == "upvotes") {
+    sortBy.value = "upvotes";
+  }else if(params == "downvotes"){
+    sortBy.value = "downvotes";
+  }
+  $(".sort-selection").change(function(){
+    if (sortBy.value == "upvotes") {
+      sortForm.action = "/courses/<%= @course.id%>?sort_by=upvotes";
+    }else if(sortBy.value == "downvotes"){
+      sortForm.action = "/courses/<%= @course.id%>?sort_by=downvotes";
+    }else{
+      sortForm.action = "/courses/<%= @course.id%>"
+    }
+  });
+</script>

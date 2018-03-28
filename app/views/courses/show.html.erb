@@ -40,23 +40,23 @@
           </section>
           
         </aside>
-          <div class="">
+          <div class="vote-btns">
                 <% @user_folders.each do |x| %>
-                <%= link_to like_course_folder_path(x), method: :put, remote: true do %>
-                  <button class="social-like" >
+                
+                  <button class="social-like> ahihi" >
                       <span class="like"><i class="glyphicon glyphicon-thumbs-up"></i></span>
-                      <span class="count" ><%= x.get_upvotes.size %></span>
+                      <span class="count vote-<%= x.id %>" ><%= x.get_upvotes.size %></span>
                   </button>
               
-            <% end %>
+              
 
-              <%= link_to dislike_course_folder_path(x), method: :put, remote: true do %>
+              
                 <button class="social-dislike" >
-                   <span class="dislike" ><%= x.get_downvotes.size %></span>
-                   <span class="like"><i class="glyphicon glyphicon-thumbs-down"></i></span>
+                   
+                   <span class="like "><i class="glyphicon glyphicon-thumbs-down"></i></span>
+                   <span class="dislike vote-<%= x.id %>" ><%= x.get_downvotes.size %></span>
               </button>
               
-            <% end %>
             <% end %>
           </div>
       </div>

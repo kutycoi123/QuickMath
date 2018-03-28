@@ -1,12 +1,21 @@
 <div class="container">  
   <div class="row">
     <h1>Course Folder</h1>
+    <p style="text-align: right">
+      <%= link_to like_course_folder_path(@course_folder), method: :put, class: "like-btn" do %>
+        Like
+      <% end %>
+      /
+      <%= link_to dislike_course_folder_path(@course_folder), method: :put, class: "dislike-btn" do %>
+        Dislike
+      <% end %>
+    </p>
+
     <p>
       <b>Course code: </b>
       <%= @course_folder.name %>
     </p>
-
-    <p>
+        <p>
       <b>Title: </b>
       <%= @course_folder.title %>
     </p>
@@ -61,6 +70,27 @@
     </div>
     </div>
 </div>
+<script type="text/javascript">
+  var like = document.querySelector(".like-btn");
+  var dislike = document.querySelector(".dislike-btn");
+  <% if @user.voted_up_on? @course_folder %>
+    like.style.color = "#33D5FF";
+  <% elsif @user.voted_down_on? @course_folder %>
+    dislike.style.color = "#33D5FF"
+  <% end %>
+  like.addEventListener("click", function(){
+    if (dislike.style.color == "#33D5FF") {
+      dislike.style.color = "grey";
+      like.style.color = "#33D5FF";
+    }
+  });
+  dislike.addEventListener("click", function(){
+    if (like.style.color == "#33D5FF") {
+      like.style.color = "grey";
+      dislike.style.color = "#33D5FF";
+    }
+  });
 
+</script>
 
 

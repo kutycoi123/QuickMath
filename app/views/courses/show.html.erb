@@ -45,20 +45,20 @@
 
 
         <div class = "c1">
-          <%= link_to like_course_folder_path(x), method: :put, remote: true do %>
+          
           <button class="social-like" >
                 <span class="like"><i class="glyphicon glyphicon-thumbs-up"></i></span>
                 <span class="count" ><%= x.get_upvotes.size %></span>
           </button>
               
-          <% end %>
+          
 
-          <%= link_to dislike_course_folder_path(x), method: :put, remote: true do %>
+          
                 <button class="social-dislike" >
                    <span class="dislike" ><%= x.get_downvotes.size %></span>
                    <span class="like"><i class="glyphicon glyphicon-thumbs-down"></i></span>
                 </button>    
-          <% end %>
+          
         </div>
 
         </div>
@@ -90,20 +90,15 @@
         </aside>
 
           <div class="c1">
-          <%= link_to like_course_folder_path(x), method: :put, remote: true do %>
           <button class="social-like" >
                 <span class="like"><i class="glyphicon glyphicon-thumbs-up"></i></span>
                 <span class="count" ><%= x.get_upvotes.size %></span>
           </button>
               
-          <% end %>
-
-          <%= link_to dislike_course_folder_path(x), method: :put, remote: true do %>
                 <button class="social-dislike" >
                    <span class="dislike" ><%= x.get_downvotes.size %></span>
                    <span class="like"><i class="glyphicon glyphicon-thumbs-down"></i></span>
                 </button>    
-          <% end %>
           </div>
 
       </div>

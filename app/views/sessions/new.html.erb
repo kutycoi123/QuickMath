@@ -41,6 +41,7 @@
 		<%= f.label :email, class: "lb"%>
 		<%= f.email_field :email, class: "custom-login-input"%>
 		<%= f.label :password, class: "lb"%>
+    <%= link_to "(forgot password)", new_password_reset_path %>
 		<%= f.password_field :password, class: "custom-login-input"%>
 
 		<%= f.label :remember_me, class: "lb" do%>

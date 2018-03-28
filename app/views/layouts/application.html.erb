@@ -18,10 +18,12 @@
       <% end %>
     <%= yield %>
 	</div>
+  <%= render 'layouts/footer'%>
 
   <script type="text/javascript">
     var baseURI = document.baseURI;
-    if (baseURI == "http://localhost:3000/welcome" || baseURI == "http://localhost:3000/" ) {
+    var path = window.location.pathname;
+    if (path == "/welcome" || path == "/" ) {
       $("body").css({
           paddingTop: "160px",
           backgroundImage: " url(https://c2.staticflickr.com/8/7172/6552664403_5795f590cc_b.jpg)",
@@ -31,7 +33,7 @@
         })
 
       $("#home-btn").addClass("active");
-    }else if (document.baseURI == "http://localhost:3000/about") {
+    }else if (path == "/about") {
       $("#about-btn").addClass("active");
     }
     $("#modal_trigger_1").leanModal({
@@ -64,11 +66,13 @@
       <% setLoginErrorsDetected(false)%>
       <% setLoginErrors([])%>
     });
+    if (path == "/welcome" || path == "/about") {
+      document.getElementById("myFooter").style.display = "block";
+    }else{
+      document.getElementById("myFooter").style.display = "none";
+    }
   </script>
   </body>
 
-<%= render 'layouts/footer' unless !current_page?("http://localhost:3000/welcome")%>
-<%= render 'layouts/footer' unless !current_page?("http://localhost:3000/")%>
-<%= render 'layouts/footer' unless !current_page?("http://localhost:3000/about")%>
 
 </html>

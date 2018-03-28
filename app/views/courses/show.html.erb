@@ -3,6 +3,7 @@
 
 <div class="container" >
 <div class="row">
+
   <div class="course_header">
     <h1><%= @course.name %>: <%= @course.title %></h1>
     
@@ -10,11 +11,13 @@
     <hr>
   </div>
 
+<!-- Start here -->
+
   <div class="list_of_note">
+
     <% @user_folders.each do |x| %>
-      <%= link_to course_folder_path(x) do %>
-      <div class="note panel panel-default">
-      
+        <%= link_to course_folder_path(x) do %>
+        <div class="note panel panel-default" style="height:220px"">
         <aside class="col-md-4">
           <section class="note_info">
           
@@ -37,44 +40,35 @@
             <%= link_to "Edit", '#'%>/
             <%= link_to "Delete", '#'%>
           </p>
-          </section>
-          
+        </section>
         </aside>
-          <div class="vote-btns">
-                <% @user_folders.each do |x| %>
-                
-                  <button class="social-like> ahihi" >
-                      <span class="like"><i class="glyphicon glyphicon-thumbs-up"></i></span>
-                      <span class="count vote-<%= x.id %>" ><%= x.get_upvotes.size %></span>
-                  </button>
-              
-              
 
+
+        <div class = "c1">
+          <%= link_to like_course_folder_path(x), method: :put, remote: true do %>
+          <button class="social-like" >
+                <span class="like"><i class="glyphicon glyphicon-thumbs-up"></i></span>
+                <span class="count" ><%= x.get_upvotes.size %></span>
+          </button>
               
+          <% end %>
+
+          <%= link_to dislike_course_folder_path(x), method: :put, remote: true do %>
                 <button class="social-dislike" >
-                   
-                   <span class="like "><i class="glyphicon glyphicon-thumbs-down"></i></span>
-                   <span class="dislike vote-<%= x.id %>" ><%= x.get_downvotes.size %></span>
-              </button>
-              
-            <% end %>
-          </div>
-      </div>
-      <% end %>
-      <div>
-        
-        
-     
-        
-        
-        
+                   <span class="dislike" ><%= x.get_downvotes.size %></span>
+                   <span class="like"><i class="glyphicon glyphicon-thumbs-down"></i></span>
+                </button>    
+          <% end %>
+        </div>
 
-      </div>
-    
-  <% end %>
+        </div>
+
+      <% end %>
+    <% end %>
+
     <% @non_user_folders.each do |x| %>
       <%= link_to course_folder_path(x) do %>
-      <div class="note panel panel-default">
+      <div class="note panel panel-default" style="height:220px">
         <aside class="col-md-4">
           <section class="note_info">
           
@@ -91,23 +85,33 @@
             Term: <%= x.term %>, <%= x.year%>
           </h1>
           <p></p>
+
           </section>
         </aside>
+
+          <div class="c1">
+          <%= link_to like_course_folder_path(x), method: :put, remote: true do %>
+          <button class="social-like" >
+                <span class="like"><i class="glyphicon glyphicon-thumbs-up"></i></span>
+                <span class="count" ><%= x.get_upvotes.size %></span>
+          </button>
+              
+          <% end %>
+
+          <%= link_to dislike_course_folder_path(x), method: :put, remote: true do %>
+                <button class="social-dislike" >
+                   <span class="dislike" ><%= x.get_downvotes.size %></span>
+                   <span class="like"><i class="glyphicon glyphicon-thumbs-down"></i></span>
+                </button>    
+          <% end %>
+          </div>
+
       </div>
+
+      
+
       <% end %>
-      <div>
-        <button class="social-like" >
-                 <span class="like"><i class="glyphicon glyphicon-thumbs-up"></i></span>
-                 <span class="count" >0</span>
-             </button>
-            &nbsp;
-        <button class="social-dislike" >
-             <span class="dislike" >0</span>
-             <span class="like"><i class="glyphicon glyphicon-thumbs-down"></i></span>
-        </button>  
-      </div> 
-     
-    <% end %>
+    <%end %>
 
   </div>
 

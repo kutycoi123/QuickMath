@@ -6,17 +6,22 @@ class UsersController < ApplicationController
 	def create
 		@user = User.new(user_params)
 		if @user.save
-			flash[:success] = "Sign up successful. Try logging in the system"
-			setSignUpErrorsDetected(false)
-			redirect_to login_path
+      		@user.send_activation_email
+      		flash[:info] = "Please check your email to activate your account."
+      		redirect_to welcome_path
 		else
 			setSignUpErrorsDetected(true)
 			setSignUpErrors(@user.errors.full_messages)
 			redirect_to welcome_path(error_param: @user)
 		end
 	end
+  	# def index
+  	# 	@users = User.where(activated: FILL_IN).paginate(page: params[:page])
+  	# end
 	def show
 		 @user = User.find(params[:id])
+		 # @user = User.find(params[:id])
+		 # redirect_to welcome_path and return unless FILL_IN
 	end
 	def edit
 

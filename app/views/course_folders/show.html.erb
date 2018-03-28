@@ -75,10 +75,12 @@
 <script type="text/javascript">
   var like = document.querySelector(".like-btn");
   var dislike = document.querySelector(".dislike-btn");
-  <% if current_user.voted_up_on? @course_folder %>
-    like.style.color = "#33D5FF";
-  <% elsif current_user.voted_down_on? @course_folder %>
-    dislike.style.color = "#33D5FF"
+  <% if !current_user.nil?%>
+    <% if current_user.voted_up_on? @course_folder %>
+      like.style.color = "#33D5FF";
+    <% elsif current_user.voted_down_on? @course_folder %>
+      dislike.style.color = "#33D5FF"
+      <% end %>
   <% end %>
   like.addEventListener("click", function(){
     if (dislike.style.color == "#33D5FF") {

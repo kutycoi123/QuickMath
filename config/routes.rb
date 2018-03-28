@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
 
+  get 'password_resets/new'
+
+  get 'password_resets/edit'
+
   root 'pages#welcome'
 
   # resources :users do
@@ -8,6 +12,9 @@ Rails.application.routes.draw do
   resources :users
 
   resources :account_activations, only: [:edit] #route for account activations
+
+  resources :password_resets,     only: [:new, :create, :edit, :update]
+
   
   resources :course_folders do
     member do

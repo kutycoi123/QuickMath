@@ -36,9 +36,8 @@
           <p></p>
 
           <p>
-            <%= link_to "Show", '#'%>/
-            <%= link_to "Edit", '#'%>/
-            <%= link_to "Delete", '#'%>
+            <%= link_to "Delete", course_folder_path(x), method: :delete, data: { confirm: 'Are you sure'} %>
+
           </p>
         </section>
         </aside>

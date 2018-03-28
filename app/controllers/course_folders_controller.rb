@@ -93,7 +93,13 @@ class CourseFoldersController < ApplicationController
         @course_folder.downvote_by current_user
         redirect_to course_folder_path(@course_folder)	
     end
-    
+
+    def destroy
+    	CourseFolder.find(params[:id]).destroy
+    	redirect_to request.referer
+    	# course = params[:course_id]
+    	# redirect_to course_path(course)
+  	end
     
 	private
 		def course_folder_params

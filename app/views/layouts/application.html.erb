@@ -66,6 +66,7 @@
   </body>
 
 <%= render 'layouts/footer' unless !current_page?("http://localhost:3000/welcome")%>
-
+<%= render 'layouts/footer' unless !current_page?("http://localhost:3000/")%>
+<%= render 'layouts/footer' unless !current_page?("http://localhost:3000/about")%>
 
 </html>

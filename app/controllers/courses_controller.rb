@@ -20,7 +20,9 @@ class CoursesController < ApplicationController
 				#flash[:danger] = "You are not allowed to see other people's information"
 				redirect_to user_path(@user)
 			end
-		
+		end
+		if params[:sort_by] && params[:sort_by] == "upvotes"
+			 @non_user_folders.sort_by {|f| f.get_upvotes.size}
 		end
 	end
 	def search
@@ -35,9 +37,15 @@ class CoursesController < ApplicationController
 			flash[:danger] = "Course not found."
 		end
 	end
+
 	private
 	def course_params
 		params.require(:course).permit(:name)
+	end
+
+	def sortByUpvote(array)
+		
+		return array.sort_by {|f| f.get_upvotes.size }
 	end
 
 

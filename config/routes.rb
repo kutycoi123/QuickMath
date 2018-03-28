@@ -11,7 +11,7 @@ Rails.application.routes.draw do
     member do
         put "like", to: "course_folders#upvote"
         put "dislike", to: "course_folders#downvote"
-        
+
     end
   end
   
@@ -35,5 +35,7 @@ Rails.application.routes.draw do
   patch '/course_folders/:id/upload', to: 'course_folders#upload'
 
   post  '/courses/search', to: 'courses#search', as: "search_courses"
+
+  # post  '/courses/sort_uovotes/:id', to: 'courses#sort_upvotes', as: "sort_upvotes_courses"
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

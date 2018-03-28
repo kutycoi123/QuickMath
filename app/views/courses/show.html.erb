@@ -6,15 +6,14 @@
 
   <div class="course_header">
     <h1><%= @course.name %>: <%= @course.title %></h1>
-    
-    <%= link_to "Add notes",  "#", class: "add_note"%>
-    <hr>
   </div>
 
 <!-- Start here -->
 
   <div class="list_of_note">
-
+  
+    <%= link_to "Sort by upvotes", course_path(@course, sort_by: "upvotes"), method: :get %>
+  
     <% @user_folders.each do |x| %>
         <%= link_to course_folder_path(x) do %>
         <div class="note panel panel-default" style="height:220px"">

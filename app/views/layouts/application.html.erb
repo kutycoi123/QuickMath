@@ -64,5 +64,8 @@
     });
   </script>
   </body>
-      <%= render 'layouts/footer' %>
+
+<%= render 'layouts/footer' unless !current_page?("http://localhost:3000/welcome")%>
+
+
 </html>

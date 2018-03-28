@@ -6,6 +6,8 @@ Rails.application.routes.draw do
   #   resources :course_folders
   # end
   resources :users
+
+  resources :account_activations, only: [:edit] #route for account activations
   
   resources :course_folders do
     member do

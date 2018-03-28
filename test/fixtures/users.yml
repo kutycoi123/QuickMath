@@ -4,8 +4,15 @@ testUser:
   name: testUser
   email: testuser12345@gmail.com
   password_digest: <%= Digest::SHA1.hexdigest("123456") %>
+  activated: true
+  activated_at: <%= Time.zone.now %>
+
 
 michael:
   name: Michael Example
   email: michael@example.com
   password_digest: <%= User.digest('password') %>
+  activated: true
+  activated_at: <%= Time.zone.now %>
+
+<% end %>

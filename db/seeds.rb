@@ -82,10 +82,18 @@ end
 # end
 user = User.create!(name: "testuser",
 				email: "testuser123@gmail.com",
-				password: "123456", password_confirmation: "123456")
+				password: "123456", 
+				password_confirmation: "123456", 
+				activated: true, 
+				activated_at: Time.zone.now)
+
 user1 = User.create!(name: "testuser1",
 				email: "testuser1234@gmail.com",
-				password: "123456", password_confirmation: "123456")
+				password: "123456", 
+				password_confirmation: "123456",
+				activated: true,
+             	activated_at: Time.zone.now)
+
 courseFolder_1 = CourseFolder.create!(name: "CMPT 276",
 						  title: "Introduction to Software Engineering",
 						  year: 2018, term: "Spring", user_id: 1)

@@ -13,6 +13,7 @@ Rails.application.routes.draw do
     member do
         put "like", to: "course_folders#upvote"
         put "dislike", to: "course_folders#downvote"
+        
     end
   end
   

@@ -70,3 +70,12 @@ img {
 .thumbnails{
   margin-bottom:20px;
 }
+
+.like-btn, .dislike-btn{
+  color: grey;
+}
+.social-like, .social-dislike{
+  border: none;
+  background: none;
+  pointer-events: none;
+}

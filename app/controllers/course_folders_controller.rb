@@ -84,15 +84,22 @@ class CourseFoldersController < ApplicationController
     def upvote
         @course_folder = CourseFolder.find(params[:id])
         @course_folder.upvote_by current_user
-        redirect_to :back
+        redirect_to course_folder_path(@course_folder)
+        
     end
     
     def downvote
         @course_folder = CourseFolder.find(params[:id])
         @course_folder.downvote_by current_user
-        redirect_to :back
+        redirect_to course_folder_path(@course_folder)	
     end
-    
+
+    def destroy
+    	CourseFolder.find(params[:id]).destroy
+    	redirect_to request.referer
+    	# course = params[:course_id]
+    	# redirect_to course_path(course)
+  	end
     
 	private
 		def course_folder_params

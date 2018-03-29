@@ -13,10 +13,8 @@
         <li id="home-btn"><a href="../welcome">Home</a></li>
         <li id="about-btn"><a href="../about">About</a></li>
         <!-- <li><a href="../show">Account</a></li> -->
-      
-        <% if logged_in? %>
-          <li> <%= link_to "Account", user_path(current_user) %> </li>
-        <% end %>
+
+
         <li>
             <%= form_for(:course, url: search_courses_path, :html => {:class => 'form-inline custom-search-input', :id => 'search-form', autocomplete: "off"}) do |f| %>
               <div class="input-group col-md-12 ui-widget">
@@ -38,13 +36,13 @@
 
       <ul class="nav navbar-nav navbar-right">
 
-   
+
         <% if logged_in?%>
-          
+          <li> <%= link_to "Account", user_path(current_user) %> </li>
           <li><%= link_to "Log out", logout_path, method: :delete %></li>
         <% end %>
 
-      </ul> 
+      </ul>
     </div>
   </div>
 </nav>

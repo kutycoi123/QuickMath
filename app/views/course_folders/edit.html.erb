@@ -8,14 +8,14 @@
 				<%= render 'shared/course_folder_error_messages'%>
 				<%= f.label :course_name%>
 				<%= f.text_field :name, placeholder: "Enter course code", class: 'form-control', id: "course-name-input", data: {autocomplete_source: Course.order(:name).map(&:name)} %>
-				<%= f.label :title %>
+				<%= f.label :folder_name %>
 				<%= f.text_field :title,  class: 'form-control'%>
 
 				<%= f.label :year%>
 				<%= f.number_field :year,  class: 'form-control'%>
 
 				<%= f.label :term%>
-				
+
 				<%= f.select(:term, options_for_select([['Spring'], ['Summer'], ['Fall']]),  class: 'form-control') %>
 				<%= f.submit "Edit", class: "btn btn-primary submit-btn" %>
 			<% end %>

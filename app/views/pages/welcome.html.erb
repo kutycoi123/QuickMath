@@ -3,13 +3,13 @@
   	<title>Welcome</title>
     <h1>Welcome to QuickSFU</h1>
     <% if !logged_in? %>
-		    <a id="modal_trigger_1" href="#sign_up_modal" class="btn"> Sign Up</a> 
-		  	<a id="modal_trigger_2" href="#login_modal" class="btn">Login</a> 
+		    <a id="modal_trigger_1" href="#sign_up_modal" class="btn"> Sign Up</a>
+		  	<a id="modal_trigger_2" href="#login_modal" class="btn">Login</a>
 	<% end %>
   	<div id="sign_up_modal" class="popupContainer" style="display:none;">
   		<header class="popupHeader">
   			<span class="popup_title">Sign up</span>
-  			<span class="modal_close signup_close"><i class="fa fa-times" aria-hidden="true"></i></span> 
+  			<span class="modal_close signup_close"><i class="fa fa-times" aria-hidden="true"></i></span>
   			<!-- <span class="modal_close" aria-label="Close">&times;</span> -->
   		</header>
   		<div class="popupBody user_signup">
@@ -30,8 +30,8 @@
 								  </div>
 							<% end %>
 						  <% end %>
-						  
-					      <%= f.label :name %>
+
+					      <%= f.label :Username %>
 					      <%= f.text_field :name%>
 					      <br>
 					      <%= f.label :email%>
@@ -56,7 +56,7 @@
   	<div id="login_modal" class="popupContainer" style="display:none;">
   		<header class="popupHeader">
   			<span class="popup_title">Login</span>
-  			<span class="modal_close login_close"><i class="fa fa-times" aria-hidden="true"></i></span> 
+  			<span class="modal_close login_close"><i class="fa fa-times" aria-hidden="true"></i></span>
   			<!-- <span class="modal_close" aria-label="Close">&times;</span> -->
   		</header>
   		<div class="popupBody user_login">
@@ -65,7 +65,7 @@
 				  	<% if !PagesHelper.getLoginErrors.nil?%>
 				  		<% errorsList = PagesHelper.getLoginErrors%>
 				  		<div id="error_explanation">
-				  		
+
 						    <ul>
 						    <% errorsList.each do |msg| %>
 						      <li><%= msg %></li>
@@ -100,6 +100,3 @@
   	</div>
   </div>
 </div>
-
-
-

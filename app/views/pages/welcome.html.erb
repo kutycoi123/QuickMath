@@ -7,12 +7,12 @@
 		  	<a id="modal_trigger_2" href="#login_modal" class="btn">Login</a>
 	<% end %>
   	<div id="sign_up_modal" class="popupContainer" style="display:none;">
-  		<!-- <header class="popupHeader">
+  		 <header class="popupHeader">
   			<span class="popup_title">Sign up</span>
   			<span class="modal_close signup_close"><i class="fa fa-times" aria-hidden="true"></i></span>
   			
-  		</header> -->
-  		<!-- <div class="popupBody user_signup">
+  		</header> 
+  		 <div class="popupBody user_signup">
 				<div class="signup">
 					<%= form_for(@user, url: signup_path) do |f| %>
 						  <% if singupErrorsDetected? %>
@@ -51,8 +51,8 @@
 					      </div>
 					<% end %>
 				</div>
-  		</div> -->
-  		<%= render 'pages/signup'%>
+  		</div> 
+  		
   	</div>
   	<div id="login_modal" class="popupContainer" style="display:none;">
   		<!-- <header class="popupHeader">

@@ -65,16 +65,18 @@
                   <%= f.submit "Upload", :class => 'btn btn-success btn-upload' %>
                 <% end %>
           </div>
+           <hr>
       <% end %>
-    <div class="row">
+    <div class="row"">
       <% unless @notes.empty? %>
         <% @notes.each do |note| %>
             <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 thumbnails">
               <%= link_to image_tag(note.thumbnail.url), note.item.url %> 
               <br>
+              <p><%= note.item_file_name.split('.')[0]%></p>
               <% if correct_user?(@user) %>
                 <div class="caption">
-                  <h4><%= note.item_file_name.split('.')[0]%></h4>
+
                   <%=
                       link_to "Delete picture", note,
                         :data => { :confirm => "Are you sure?" },

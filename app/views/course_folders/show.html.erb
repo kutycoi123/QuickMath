@@ -18,7 +18,7 @@
       <%= @course_folder.name %>
     </p>
         <p>
-      <b>Title: </b>
+      <b>Folder name: </b>
       <%= @course_folder.title %>
     </p>
     <p>
@@ -28,7 +28,12 @@
     <p>
       <b>Term: <%= @course_folder.term %>, <%= @course_folder.year %></b>
     </p>
-
+    <% if logged_in? && current_user.course_folders.include?(@course_folder) %>
+        <p style="margin-left:80%;">
+        <%= link_to "Edit this course folder", edit_course_folder_path(@course_folder) %> 
+        </p>
+    <% end%>
+    
   <hr>
   </div>
 

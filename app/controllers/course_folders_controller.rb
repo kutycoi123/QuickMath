@@ -9,7 +9,7 @@ class CourseFoldersController < ApplicationController
 	def new
 		if !logged_in?
 			flash[:danger] = "Please log in to add courses"
-			redirect_to login_path
+			redirect_to welcome_path
 		end
 		@course_folder = CourseFolder.new
 	end
@@ -43,6 +43,10 @@ class CourseFoldersController < ApplicationController
 
 	end
 	def edit
+		if !logged_in?
+			flash[:danger] = "Please log in to edit courses"
+			redirect_to welcome_path
+		end
 		@course_folder = CourseFolder.find(params[:id])
 	end
 	def upload
@@ -62,22 +66,14 @@ class CourseFoldersController < ApplicationController
 	end
 	def update
 		@course_folder = CourseFolder.find(params[:id])
-		if @course_folder.update_attributes(course_folder_params)
-			if params[:notes]
-				params[:notes].each { |item|
-					itm = @course_folder.notes.create(item: item)
-					thumbPath = File.dirname(itm.item.path) + "/" + itm.item_file_name.split('.')[0] + "_thumb.jpg"
-					thumbnail = ImageList.new(itm.item.path)
-					thumbnail[0].thumbnail!(276, 200).write(thumbPath)
-
-					thumbFile = File.new(thumbPath)
-					itm.update_attributes(thumbnail: thumbFile)
-				}
+		if @course_folder
+			if @course_folder.update_attributes(course_folder_params)
+				flash[:succes] = "Update successfully";
+				redirect_to @course_folder
 			end
-			redirect_to course_folder_path(@course_folder)
 		else
-			flash[:danger] = "Can not upload this file"
-			render 'edit'
+			flash[:danger] = "Course not found";
+			redirect_to welcome_path
 		end
 	end
     

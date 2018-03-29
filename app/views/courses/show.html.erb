@@ -129,6 +129,7 @@
     sortBy.value = "downvotes";
   }
   $(".sort-selection").change(function(){
+    
     if (sortBy.value == "upvotes") {
       sortForm.action = "/courses/<%= @course.id%>?sort_by=upvotes";
     }else if(sortBy.value == "downvotes"){

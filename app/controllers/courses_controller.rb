@@ -44,6 +44,7 @@ class CoursesController < ApplicationController
 			redirect_to course_path(@course)
 		else
 			flash[:danger] = "Course not found."
+			redirect_to request.referer
 		end
 	end
 

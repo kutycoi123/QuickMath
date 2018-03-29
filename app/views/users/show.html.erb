@@ -26,12 +26,19 @@
       </div>
     <% end %>
   </div>
-  <div class="user_courses_wrapper">
+  <div >
         <% @user.course_folders.each do |x|%>
           <%= link_to course_folder_path(x) do %>
-              <div class="user_course col-md-3">
-                <div class="course_name"><%=x.name%></div>
+              <div class="user_courses_wrapper col-md-3">
+                
+                  <div class="course_name"><%=x.name%></div>
+                  <div style="margin-left:70%;">
+                    <%= link_to "Delete", course_folder_path(x), method: :delete, data: { confirm: 'Are you sure'} %>
+                    /
+                    <%= link_to "Edit", edit_course_folder_path(x) %>
+                  </div>
               </div>
+
           <% end %>
         <% end %>
   </div>

@@ -48,7 +48,17 @@
     });
     jQuery(function() {
       return $('#search-input').autocomplete({
-      source: $('#search-input').data('autocomplete-source'),
+        source: $('#search-input').data('autocomplete-source'),
+        // onselect: function (event, ui) {
+        //       $('#search-form').submit();
+        // },
+        minLength:2
+      });
+    });
+
+    jQuery(function() {
+      return $('#course-name-input').autocomplete({
+      source: $('#course-name-input').data('autocomplete-source'),
       minLength:2
       });
     });

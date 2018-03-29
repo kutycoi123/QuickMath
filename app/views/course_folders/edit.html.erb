@@ -1,7 +1,10 @@
+<title>Course folder edit</title>
+<h1>Update your course folder</h1>
+
 <div class="container">
 	<div class="col-md-6 col-md-offset-3">
 		<div class="row">
-			<%= form_for  @course_folder, url: course_folders_path  do |f|%>
+			<%= form_for(@course_folder) do |f|%>
 				<%= render 'shared/course_folder_error_messages'%>
 				<%= f.label :course_name%>
 				<%= f.text_field :name, placeholder: "Enter course code", class: 'form-control', id: "course-name-input", data: {autocomplete_source: Course.order(:name).map(&:name)} %>
@@ -14,7 +17,7 @@
 				<%= f.label :term%>
 				
 				<%= f.select(:term, options_for_select([['Spring'], ['Summer'], ['Fall']]),  class: 'form-control') %>
-				<%= f.submit "Save", class: "btn btn-primary submit-btn" %>
+				<%= f.submit "Edit", class: "btn btn-primary submit-btn" %>
 			<% end %>
 		</div>
 	</div>

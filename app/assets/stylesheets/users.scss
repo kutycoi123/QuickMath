@@ -66,12 +66,16 @@
 
 }
 .user_course{
-      height: 100px;
-      background-color: white;
-      margin-right: 20px;
-      margin-top: 5%;
-      border-bottom: 2px solid #AABEDE;
-    }
+      
+     
+}
 .course_name{
-     margin: 15% 0 20% 0;
+     padding: 17% 0 20% 0;
+     margin-left: 5%;
+}
+.user_courses_wrapper{
+  margin: 5% 5% 10px 0%;
+  background-color: white;
+  border-radius: 2%;
+  border-bottom: 2px solid #AABEDE;
 }

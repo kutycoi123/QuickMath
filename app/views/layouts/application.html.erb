@@ -46,6 +46,11 @@
       overlay: 0.6,
       closeButton: ".modal_close"
     });
+    $("#modal_trigger_3").leanModal({
+      top: 100,
+      overplay: 0.6,
+      closeButton: ".modal_close"
+    });
     jQuery(function() {
       return $('#search-input').autocomplete({
         source: $('#search-input').data('autocomplete-source'),
@@ -76,7 +81,7 @@
       <% setLoginErrorsDetected(false)%>
       <% setLoginErrors([])%>
     });
-    if (path == "/welcome" || path == "/about") {
+    if (path == "/welcome" || path == "/about" || path == "/") {
       document.getElementById("myFooter").style.display = "block";
     }else{
       document.getElementById("myFooter").style.display = "none";

@@ -1,0 +1,44 @@
+
+<header class="popupHeader">
+	<span class="popup_title">Login</span>
+	<span class="modal_close login_close"><i class="fa fa-times" aria-hidden="true"></i></span>
+	<!-- <span class="modal_close" aria-label="Close">&times;</span> -->
+</header>
+<div class="popupBody user_login">
+<%= form_for(:session, url: login_path) do |f|%>
+	<% if loginErrorsDetected? %>
+	  	<% if !PagesHelper.getLoginErrors.nil?%>
+	  		<% errorsList = PagesHelper.getLoginErrors%>
+	  		<div id="error_explanation">
+
+			    <ul>
+			    <% errorsList.each do |msg| %>
+			      <li><%= msg %></li>
+			    <% end %>
+			    </ul>
+			  </div>
+		<% end %>
+	<% end %>
+	<%= f.label :email%>
+	<%= f.email_field :email%>
+	<br>
+	<%= f.label :password%>
+	<%= f.password_field :password%>
+	<br>
+
+	<%= f.label :remember_me do%>
+		<%= f.check_box :remember_me%>
+		<span>Remember me on this computer</span>
+	<% end %>
+	<hr>
+
+	<div class="action_btns">
+	 	 <div class="one_half last">
+      		<%= f.submit "Login", class: "btn btn_red" %>
+      	 </div>
+	</div>
+
+<% end %>
+
+<a href="/password_resets/new" class="forgot_password">Forgot password?</a>
+</div>

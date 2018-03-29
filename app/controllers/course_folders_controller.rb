@@ -51,6 +51,10 @@ class CourseFoldersController < ApplicationController
 	end
 	def upload
 		@course_folder = CourseFolder.find(params[:id])
+		if !logged_in?
+			flash[:danger] = "Please login to upload and edit notes"
+			redirect_to welcome_path and return
+		end
 		if params[:notes]
 				params[:notes].each { |item|
 					itm = @course_folder.notes.create(item: item)

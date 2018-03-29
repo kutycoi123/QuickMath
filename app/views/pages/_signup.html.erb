@@ -1,0 +1,45 @@
+<header class="popupHeader">
+  			<span class="popup_title">Sign up</span>
+  			<span class="modal_close signup_close"><i class="fa fa-times" aria-hidden="true"></i></span>
+  			<!-- <span class="modal_close" aria-label="Close">&times;</span> -->
+  		</header>
+<div class="popupBody user_signup">
+	<div class="signup">
+		<%= form_for(@user, url: signup_path) do |f| %>
+			  <% if singupErrorsDetected? %>
+			  	<% if !PagesHelper.getSignUpErrors.nil?%>
+			  		<% errorsList = PagesHelper.getSignUpErrors%>
+			  		<div id="error_explanation">
+			  		<div class="alert alert-danger">
+				      The form contains <%= pluralize(errorsList.count, "error") %>.
+				    </div>
+					    <ul>
+					    <% errorsList.each do |msg| %>
+					      <li><%= msg %></li>
+					    <% end %>
+					    </ul>
+					  </div>
+				<% end %>
+			  <% end %>
+
+		      <%= f.label :Username %>
+		      <%= f.text_field :name%>
+		      <br>
+		      <%= f.label :email%>
+		      <%= f.email_field :email %>
+		      <br>
+		      <%= f.label :password %>
+		      <%= f.password_field :password %>
+		      <br>
+		      <%= f.label :password_confirmation, "Confirm Password" %>
+		      <%= f.password_field :password_confirmation %>
+
+			  <hr>
+			  <div class="action_btns">
+			 	 <div class="one_half last">
+		      		<%= f.submit "Register", class: "btn btn_red" %>
+		      	 </div>
+		      </div>
+		<% end %>
+	</div>
+</div>

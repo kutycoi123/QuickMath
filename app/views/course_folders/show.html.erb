@@ -38,7 +38,8 @@
   </div>
 
   <div class="row">
-      <% if correct_user?(@user)%>
+     
+      <% if logged_in? && correct_user?(@user)%>
         <div class="upload-form row">
           <h3>Upload notes</h3>
           <%= form_for @course_folder, url: {action: 'upload'}, :html => {multipart: true } do |f|%>
@@ -48,14 +49,23 @@
               
 
               <%= file_field_tag "notes[]", type: :file, multiple: true, class: "upload-field" %>
-              <%= f.submit "Upload", :class => 'btn btn-success btn-upload' %>
+                <%= f.submit "Upload", :class => 'btn btn-success btn-upload' %>
+             
             </div>
           </div>
           <% end %>
         </div>
         <hr>
       <% end %>
+
       <h2>Notes</h2>
+       <% if !logged_in? %>
+          <div class="upload-form row">
+                <%= form_for @course_folder, url: {action: 'upload'}, :html => {multipart: true } do |f|%>
+                  <%= f.submit "Upload", :class => 'btn btn-success btn-upload' %>
+                <% end %>
+          </div>
+      <% end %>
     <div class="row">
       <% unless @notes.empty? %>
         <% @notes.each do |note| %>
@@ -100,7 +110,7 @@
       dislike.style.color = "#33D5FF";
     }
   });
-
+  
 </script>
 
 

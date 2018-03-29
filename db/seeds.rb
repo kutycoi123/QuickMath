@@ -41,7 +41,7 @@ rescue
 	next
 end
  end
-seedUser = {"Rafid" => "rpranta@sfu.ca", "Lam Nguyen" => "tln3@sfu.ca", 
+seedUser = {"Rafid" => "rpranta@sfu.ca", 
 				"Mario" => "mimeri@sfu.ca", "Angad" => "asa217@sfu.ca"}
 seedUser.each do |key, value|
 	User.create(name: key, email: value, password: "123456", password_confirmation: "123456", 
